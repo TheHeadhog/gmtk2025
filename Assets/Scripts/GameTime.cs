@@ -6,7 +6,7 @@ public class GameTime
 {
     [Range(9, 17)]
     public int Hours;
-    [Range(0, 60)]
+    [Range(0, 59)]
     public int Minutes;
 }
 
