@@ -1,0 +1,24 @@
+using System;
+using UnityEngine;
+
+[Serializable]
+public class GameTime
+{
+    [Range(9, 17)]
+    public int Hours;
+    [Range(0, 60)]
+    public int Minutes;
+}
+
+public static class GameTimeExtensions
+{
+    public static int ToGameTick(this GameTime gameTime)
+    {
+        return (gameTime.Hours - 9) * 60 + gameTime.Minutes;
+    }
+}
+
+public static class GameConfig
+{
+    public static float RealSecondsPerGameMinute = 1;
+}
