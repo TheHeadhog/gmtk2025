@@ -47,17 +47,16 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
 
     public void ClampToScreen()
     {
-        Vector3 s = rect.lossyScale;
-        Vector2 half = new Vector2(
-            rect.rect.width * 0.5f * s.x,
-            rect.rect.height * 0.5f * s.y);
+        Vector2 halfSize = new Vector2(
+            rect.rect.width  * 0.5f * rect.lossyScale.x,
+            rect.rect.height * 0.5f * rect.lossyScale.y);
 
         Vector2 pos = rect.anchoredPosition;
-        pos.x = Mathf.Clamp(pos.x, -canvasHalfSize.x + half.x, canvasHalfSize.x - half.x);
-        pos.y = Mathf.Clamp(pos.y, -canvasHalfSize.y + half.y, canvasHalfSize.y - half.y);
+        pos.x = Mathf.Clamp(pos.x, -canvasHalfSize.x + halfSize.x, canvasHalfSize.x - halfSize.x);
+        pos.y = Mathf.Clamp(pos.y, -canvasHalfSize.y + halfSize.y, canvasHalfSize.y - halfSize.y);
+
         rect.anchoredPosition = pos;
     }
-
 
     public void OnPointerDown(PointerEventData eventData)
     {
