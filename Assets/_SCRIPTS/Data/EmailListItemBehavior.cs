@@ -17,7 +17,6 @@ public class EmailListItemBehavior : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("CLICKED");
         GameEvents.RaiseEmailClicked(emailData);
     }
 }

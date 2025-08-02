@@ -55,7 +55,6 @@ public class TimelineManager : SingletonPersistent<TimelineManager>
         {
             yield return waitTime;
             GameTicks++;
-            Debug.Log("Game Ticks: " + GameTicks);
         }
     }
 }
