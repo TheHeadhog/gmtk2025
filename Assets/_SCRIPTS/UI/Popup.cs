@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,8 +23,20 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
         initialScale = transform.localScale;
         transform.localScale = Vector3.zero;
     }
+
+    private void OnEnable()
+    {
+        GameEvents.OnGameStart += OpenPopup;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnGameStart -= OpenPopup;
+    }
+
+    private void OpenPopup() => StartCoroutine(OpenPopupCoroutine());
     
-    private IEnumerator Start()
+    private IEnumerator OpenPopupCoroutine()
     {
         yield return new WaitForSeconds(initialDelay);
         

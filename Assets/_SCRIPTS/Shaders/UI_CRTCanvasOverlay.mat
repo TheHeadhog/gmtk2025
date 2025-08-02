@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI_CRTOverlay
-  m_Shader: {fileID: 4800000, guid: 4b386dd73bd07704dbc30cffd3ccc7fa, type: 3}
+  m_Name: UI_CRTCanvasOverlay
+  m_Shader: {fileID: 4800000, guid: fcdedcf9b43b0ce4c80c7d0183ab05b4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,10 +29,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Aberration: 1
-    - _Curvature: 0.12
-    - _ScanlineIntensity: 0.5
-    - _Vignette: 0.35
+    - _AberrationPx: 1.5
+    - _Curvature: 0.2
+    - _Opacity: 0.6
+    - _Scanlines: 1
+    - _Vignette: 0.4
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

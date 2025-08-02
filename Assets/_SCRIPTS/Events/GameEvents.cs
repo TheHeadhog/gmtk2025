@@ -3,6 +3,7 @@ using DefaultNamespace;
 
 public static class GameEvents
 {
+    public static event Action OnGameStart;
     public static event Action<int> GameTimeChanged;
     public static event Action<CheckResponse> OnBadResponse;
     public static event Action<CheckResponse> OnGoodResponse;
@@ -11,6 +12,7 @@ public static class GameEvents
     public static event Action<EmailData> OnEmailClicked;
     public static event Action<NewsData> OnNewsButtonClicked;
 
+    public static void RaiseGameStart() => OnGameStart?.Invoke();
     public static void RaiseGameTimeChanged(int gameTime) => GameTimeChanged?.Invoke(gameTime);
     public static void RaiseBadResponse(CheckResponse response) => OnBadResponse?.Invoke(response);
     public static void RaiseGoodResponse(CheckResponse response) => OnGoodResponse?.Invoke(response);

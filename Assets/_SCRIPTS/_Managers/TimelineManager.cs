@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TimelineManager : SingletonPersistent<TimelineManager>
@@ -10,9 +11,14 @@ public class TimelineManager : SingletonPersistent<TimelineManager>
 
     private int gameTicks;
 
-    private void Start()
+    private void OnEnable()
     {
-        StartGame();
+        GameEvents.OnGameStart += StartGame;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnGameStart -= StartGame;
     }
 
     public int GameTicks
