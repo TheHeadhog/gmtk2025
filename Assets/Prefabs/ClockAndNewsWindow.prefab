@@ -284,7 +284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 09:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a46ed11288337647b6561a65e8c32d2, type: 2}
   m_sharedMaterial: {fileID: -5779737007026961116, guid: 8a46ed11288337647b6561a65e8c32d2, type: 2}
@@ -534,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openDuration: 0.4
   initialDelay: 0.4
+  shouldOpenOnGameStart: 1
 --- !u!1 &2735520206879513974
 GameObject:
   m_ObjectHideFlags: 0
