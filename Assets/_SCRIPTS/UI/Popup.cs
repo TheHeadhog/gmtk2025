@@ -8,13 +8,15 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(RectTransform))]
 public sealed class Popup : MonoBehaviour, IPointerDownHandler
 {
+    public event Action OnOpened;
+
     [SerializeField] private float openDuration = 0.4f;
     [SerializeField] private float initialDelay = 0.4f;
     private RectTransform rect;
     private Canvas rootCanvas;
     private Vector2 canvasHalfSize;
     private Vector3 initialScale;
-    
+
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -35,19 +37,19 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
     }
 
     private void OpenPopup() => StartCoroutine(OpenPopupCoroutine());
-    
+
     private IEnumerator OpenPopupCoroutine()
     {
         yield return new WaitForSeconds(initialDelay);
-        
-        transform.DOScale(initialScale, openDuration).SetEase(Ease.OutExpo);
+
+        transform.DOScale(initialScale, openDuration).SetEase(Ease.OutExpo).OnComplete(() => OnOpened?.Invoke());
     }
-    
+
     public void ClampToScreen()
     {
         Vector3 s = rect.lossyScale;
         Vector2 half = new Vector2(
-            rect.rect.width  * 0.5f * s.x,
+            rect.rect.width * 0.5f * s.x,
             rect.rect.height * 0.5f * s.y);
 
         Vector2 pos = rect.anchoredPosition;
@@ -56,7 +58,7 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
         rect.anchoredPosition = pos;
     }
 
-    
+
     public void OnPointerDown(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
