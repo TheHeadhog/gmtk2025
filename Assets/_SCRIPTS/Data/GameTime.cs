@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 
-[Serializable]
 public class GameTime : ScriptableObject
 {
     [Range(9, 17)]

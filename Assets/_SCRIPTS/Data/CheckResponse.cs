@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
     public class CheckResponse : ScriptableObject
     {
         public string Message;

@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
     public class InfoMarker : ScriptableObject
     {
         public string Message;

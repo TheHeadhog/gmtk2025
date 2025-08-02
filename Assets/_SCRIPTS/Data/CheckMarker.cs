@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
     public class CheckMarker : ScriptableObject
     {
         public GameTime Timestamp;
