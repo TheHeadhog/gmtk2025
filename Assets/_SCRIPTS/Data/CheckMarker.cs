@@ -7,10 +7,10 @@ namespace DefaultNamespace
     [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/CheckMarker")]
     public class CheckMarker : ScriptableObject
     {
+        public CheckMarkerId Id;
         public GameTime Timestamp;
         public List<CheckResponse> Responses;
         public int Points;
-        public int Id;
         public string Message;
 
         public CheckResponse GetBadResponse(int gameTicks)
@@ -23,5 +23,16 @@ namespace DefaultNamespace
         {
             return new CheckResponse(Message, Points);
         }
+    }
+
+    public enum CheckMarkerId
+    {
+        
+    }
+
+    public class SetMarker
+    {
+        public CheckMarkerId Id;
+        public GameTime Timestamp;
     }
 }
