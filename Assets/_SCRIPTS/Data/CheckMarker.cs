@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/CheckMarker")]
+    [CreateAssetMenu(fileName = "CheckMarker", menuName = "Scriptable Objects/CheckMarker")]
     public class CheckMarker : ScriptableObject
     {
         public CheckMarkerId Id;
         public GameTime Timestamp;
-        public int DurationInGameTicks;
+        public int DurationInMinutes;
         public List<CheckResponse> Responses;
         public int Points;
         public string Message;
@@ -31,7 +31,9 @@ namespace DefaultNamespace
 
     public enum CheckMarkerId
     {
-        
+        Test1,
+        Test2,
+        Test3
     }
 
     public class SetMarker

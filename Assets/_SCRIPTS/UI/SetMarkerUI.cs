@@ -1,0 +1,139 @@
+﻿using DefaultNamespace;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(RectTransform))]
+public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+{
+    private const int SizePer10Minutes = 15;
+    
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private Color dragColor = new(1, 1, 1, 0.6f);
+
+    private RectTransform rect;
+    private RectTransform parentRect;
+    private LayoutElement layoutElement;
+    private Vector2 grabOffset;
+    private CalendarGrid grid;
+    private CheckManager checkManager;
+    private CheckMarker marker;
+    private Vector3 homePos;
+    private Vector3 targetAnchoredPos;
+    private bool isPlaced;
+
+    public CheckMarkerId MarkerId => marker.Id;
+    public int Duration => marker.DurationInMinutes;
+
+    public void Init(CheckMarker marker, CalendarGrid grid, CheckManager cm)
+    {
+        this.marker = marker;
+        this.grid = grid;
+        checkManager = cm;
+        
+        rect = GetComponent<RectTransform>();
+        Vector2 size = rect.sizeDelta;
+        size.y = (float)marker.DurationInMinutes / 10 * SizePer10Minutes;   
+        rect.sizeDelta = size;
+        
+        parentRect = transform.parent.GetComponent<RectTransform>();
+        layoutElement = GetComponent<LayoutElement>();
+        homePos = rect.anchoredPosition;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        backgroundImage.color = dragColor;
+        grabOffset = eventData.position - new Vector2(rect.position.x, rect.position.y);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (isPlaced)
+        {
+            return;
+        }
+        
+        rect.position = eventData.position - grabOffset;
+        
+        var cell = grid.GetCellAtPointer(eventData.position);
+        grid.MarkRange(new TimeRange(0, 24 * 60), CellState.Normal);
+
+        if (cell == null)
+        {
+            return;
+        }
+
+        var range = new TimeRange(cell.Tick, cell.Tick + Duration);
+        var isPossibleToPlace = range.BeginTick >= 0 && range.EndTick <= (8 * 60);
+        isPossibleToPlace &= grid.IsRangeFree(range);
+
+        if (isPossibleToPlace)
+        {
+            var firstCellAtRangeTransform = grid.GetFirstCellAtRange(range);
+            if (firstCellAtRangeTransform)
+            {
+                targetAnchoredPos = ConvertAnchoredPosition(firstCellAtRangeTransform, grid.GetComponent<RectTransform>());
+            }
+        }
+
+        grid.MarkRange(range, isPossibleToPlace ? CellState.Highlighted : CellState.Occupied);
+    }
+    
+    private Vector2 ConvertAnchoredPosition(Transform from, RectTransform toParent)
+    {
+        var worldPos = from.position;
+        var localPos = toParent.InverseTransformPoint(worldPos);
+        localPos.y -= SizePer10Minutes;
+        localPos.x = rect.sizeDelta.x / 2;
+        return localPos;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        backgroundImage.color = Color.white;
+        var cell = grid.GetCellAtPointer(eventData.position);
+        if (cell == null)
+        {
+            ReturnHome();
+            return;
+        }
+
+        var range = new TimeRange(cell.Tick, cell.Tick + Duration);
+        if (!grid.IsRangeFree(range) || range.EndTick > 8 * 60)
+        {
+            ReturnHome();
+            return;
+        }
+
+        grid.MarkRange(range, CellState.Occupied);
+        PlaceMarker(cell.StartTime);
+    }
+
+    private void PlaceMarker(GameTime startTime)
+    {
+        if (isPlaced)
+        {
+            return;
+        }
+
+        var sm = new SetMarker { Id = MarkerId, Timestamp = startTime };
+        layoutElement.ignoreLayout = true;
+        checkManager.AddNewSetMarker(sm);
+        isPlaced = true;
+        
+        rect.SetParent(grid.transform);
+        rect.anchoredPosition = targetAnchoredPos;
+        
+        LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect);
+    }
+
+    private void ReturnHome()
+    {
+        rect.anchoredPosition = homePos;
+        layoutElement.ignoreLayout = false;
+        grid.MarkRange(new TimeRange(0, 24 * 60), CellState.Normal);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect);
+    }
+}

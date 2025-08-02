@@ -2,10 +2,16 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class GameTime
+public struct GameTime
 {
     [Range(9, 17)] public int Hours;
     [Range(0, 59)] public int Minutes;
+
+    public GameTime(int hours, int minutes)
+    {
+        Hours = hours;
+        Minutes = minutes;
+    }
 }
 
 public static class GameTimeExtensions
@@ -19,12 +25,12 @@ public static class GameTimeExtensions
     {
         int hours = gameTick / 60 + 9;
         int minutes = gameTick % 60;
-        return new GameTime() { Hours = hours, Minutes = minutes };
+        return new GameTime(hours, minutes);
     }
 
     public static bool EqualsTo(this GameTime gameTime1, GameTime gameTime2)
     {
-        return gameTime2 != null && gameTime1.Hours.Equals(gameTime2.Hours) &&
+        return gameTime1.Hours.Equals(gameTime2.Hours) &&
                gameTime1.Minutes.Equals(gameTime2.Minutes);
     }
 }
