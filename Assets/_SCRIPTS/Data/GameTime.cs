@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/GameTime")]
 public class GameTime : ScriptableObject
 {
     [Range(9, 17)]

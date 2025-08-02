@@ -2,6 +2,7 @@
 
 namespace DefaultNamespace
 {
+    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/CheckResponse")]
     public class CheckResponse : ScriptableObject
     {
         public string Message;

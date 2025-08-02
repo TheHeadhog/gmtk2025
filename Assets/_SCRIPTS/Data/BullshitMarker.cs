@@ -2,6 +2,7 @@
 
 namespace DefaultNamespace
 {
+    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/BullshitMarker")]
     public class BullshitMarker : ScriptableObject
     {
         public string Message;
