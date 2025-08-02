@@ -1,8 +1,7 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 
-public class GameHeader : MonoBehaviour
+public class PopupsHandler : MonoBehaviour
 {
     [SerializeField] private float _slideDuration = 0.5f;
     [SerializeField] private Ease _slideEase = Ease.OutCubic;
@@ -17,22 +16,19 @@ public class GameHeader : MonoBehaviour
         _rect = GetComponent<RectTransform>();
         _visiblePos = _rect.anchoredPosition;
         _hiddenPos = _visiblePos + new Vector2(0f, _offset + _rect.rect.height);
-        _rect.anchoredPosition = _hiddenPos;
     }
 
     private void OnEnable()
     {
-        GameEvents.OnGameStart += Open;
-        GameEvents.OnPauseGameKeyPressed += HandlePause;
+        GameEvents.OnPauseGameKeyPressed += HandleOpenClose;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnGameStart -= Open;
-        GameEvents.OnPauseGameKeyPressed -= HandlePause;
+        GameEvents.OnPauseGameKeyPressed -= HandleOpenClose;
     }
-    
-    private void HandlePause(bool isOpening)
+
+    private void HandleOpenClose(bool isOpening)
     {
         if (isOpening)
         {

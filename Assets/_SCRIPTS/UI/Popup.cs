@@ -12,6 +12,7 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
 
     [SerializeField] private float openDuration = 0.4f;
     [SerializeField] private float initialDelay = 0.4f;
+    [SerializeField] private bool shouldOpenOnGameStart = true;
     private RectTransform rect;
     private Canvas rootCanvas;
     private Vector2 canvasHalfSize;
@@ -28,15 +29,22 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
 
     private void OnEnable()
     {
-        GameEvents.OnGameStart += OpenPopup;
+        GameEvents.OnGameStart += OpenPopupOnStart;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnGameStart -= OpenPopup;
+        GameEvents.OnGameStart -= OpenPopupOnStart;
     }
 
-    private void OpenPopup() => StartCoroutine(OpenPopupCoroutine());
+    private void OpenPopupOnStart()
+    {
+        if (!shouldOpenOnGameStart) return;
+        
+        OpenPopup();
+    }
+    
+    public void OpenPopup() => StartCoroutine(OpenPopupCoroutine());
 
     private IEnumerator OpenPopupCoroutine()
     {
@@ -44,6 +52,8 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
 
         transform.DOScale(initialScale, openDuration).SetEase(Ease.OutExpo).OnComplete(() => OnOpened?.Invoke());
     }
+    
+    public void ClosePopup() => transform.DOScale(0, openDuration).SetEase(Ease.OutExpo);
 
     public void ClampToScreen()
     {
