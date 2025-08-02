@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Helpers;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -12,6 +13,7 @@ namespace DefaultNamespace
         public List<CheckResponse> Responses;
         public int Points;
         public string Message;
+        public Channel Feature;
         public string TextOnCalendarTile;
 
         public CheckResponse GetBadResponse(int gameTicks)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Helpers;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -7,5 +8,6 @@ namespace DefaultNamespace
     {
         public string Message;
         public GameTime Timestamp;
+        public Channel Feature;
     }
 }
