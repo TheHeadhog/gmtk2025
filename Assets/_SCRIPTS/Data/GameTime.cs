@@ -15,6 +15,13 @@ public static class GameTimeExtensions
         return (gameTime.Hours - 9) * 60 + gameTime.Minutes;
     }
 
+    public static GameTime FromGameTick(this int gameTick)
+    {
+        int hours = gameTick / 60 + 9;
+        int minutes = gameTick % 60;
+        return new GameTime() { Hours = hours, Minutes = minutes };
+    }
+
     public static bool EqualsTo(this GameTime gameTime1, GameTime gameTime2)
     {
         return gameTime2 != null && gameTime1.Hours.Equals(gameTime2.Hours) &&
