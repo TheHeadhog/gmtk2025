@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EmailBehavior : MonoBehaviour
 {
@@ -29,7 +27,14 @@ public class EmailBehavior : MonoBehaviour
     void Start()
     {
         GameEvents.OnInfoMarkerAppear += OnInfoMarkerAppear;
+        GameEvents.OnEmailClicked += ChangeEmailPreview;
         UpdateMailList();
+        UpdatePreviewMail(emailList.Find((_ => true)));
+    }
+
+    private void ChangeEmailPreview(EmailData newPreviewMail)
+    {
+        UpdatePreviewMail(newPreviewMail);
     }
 
     private void OnInfoMarkerAppear(InfoMarker marker)
@@ -54,8 +59,14 @@ public class EmailBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Header.text = emailList[CurrentlySelectedEmailId].Header;
-        Body.text = emailList[CurrentlySelectedEmailId].Body;
-        Sender.text = emailList[CurrentlySelectedEmailId].Sender;
+        
+    }
+
+    private void UpdatePreviewMail(EmailData emailData)
+    {
+        if (emailData is null) return;
+        Header.text = emailData.Header;
+        Body.text = emailData.Body;
+        Sender.text = emailData.Sender;
     }
 }
