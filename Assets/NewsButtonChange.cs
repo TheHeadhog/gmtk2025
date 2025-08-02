@@ -26,9 +26,9 @@ public class NewsButtonChange : MonoBehaviour
 
     private void Awake()
     {
-        newsData.Add(new NewsData("No news1", "There are currently no news1", 1));
-        newsData.Add(new NewsData("No news2", "There are currently no news2", 2));
-        newsData.Add(new NewsData("No news3", "There are currently no news3", 3));
+        newsData.Add(new NewsData("No news", "There are currently no news", 1));
+        newsData.Add(new NewsData("No news", "There are currently no news", 2));
+        newsData.Add(new NewsData("No news", "There are currently no news", 3));
 
         CurrentTabNumber = 1;
     }
