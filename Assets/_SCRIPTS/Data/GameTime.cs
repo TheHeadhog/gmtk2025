@@ -12,6 +12,11 @@ public struct GameTime
         Hours = hours;
         Minutes = minutes;
     }
+
+    public override string ToString()
+    {
+        return $"{Hours:D2}:{Minutes:D2}";
+    }
 }
 
 public static class GameTimeExtensions

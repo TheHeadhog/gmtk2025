@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class CalendarCell : MonoBehaviour
     [SerializeField] private Color occupiedColor;
 
     [SerializeField] private Image background;
+    [SerializeField] private TMP_Text timeLabel;
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class CalendarCell : MonoBehaviour
         {
             background.color = transform.GetSiblingIndex()%2==0?normalColor:normalColorYellow;
         }
+
+        timeLabel.text = StartTime.ToString();
     }
 }
 
