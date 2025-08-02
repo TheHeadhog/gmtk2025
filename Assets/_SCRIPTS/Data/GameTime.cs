@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/GameTime")]

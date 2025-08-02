@@ -12,6 +12,7 @@ namespace DefaultNamespace
         public List<CheckResponse> Responses;
         public int Points;
         public string Message;
+        public string TextOnCalendarTile;
 
         public CheckResponse GetBadResponse(int gameTicks)
         {
