@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dc885baaff461b966cf3ab2779c678, type: 3}
+  m_Name: C2
+  m_EditorClassIdentifier: 
+  Id: 1
+  Timestamp:
+    Hours: 10
+    Minutes: 30
+  DurationInMinutes: 30
+  Responses: []
+  Points: 10
+  Message: Book a brainstorm at 10:30, we must name our new idle-clicker!
+  Feature: 0
+  TextOnCalendarTile: Mkt Brainstorm
+  SenderPerson: {fileID: 0}

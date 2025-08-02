@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/BullshitMarker")]
+    [CreateAssetMenu(fileName = "BullshitMarker", menuName = "Scriptable Objects/BullshitMarker")]
     public class BullshitMarker : ScriptableObject
     {
         public string Message;

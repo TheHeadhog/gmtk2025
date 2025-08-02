@@ -4,6 +4,7 @@
     {
         EMAIL,
         CALENDAR,
-        NEWS
+        NEWS,
+        CHAT
     }
 }

@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/Person")]
+    [Serializable]
     public class Person : ScriptableObject
     {
         public string FullName;

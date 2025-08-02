@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0652be6bfa0542139956c3985deab7ac, type: 3}
+  m_Name: B75
+  m_EditorClassIdentifier: 
+  Message: We accidentally fixed a bug. Unsure how to proceed.
+  Timestamp:
+    Hours: 16
+    Minutes: 18
+  Feature: 0
+  SenderPerson: {fileID: 0}
+  ReceivedNewsData:
+    Header: 
+    Body: 

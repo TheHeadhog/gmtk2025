@@ -16,6 +16,7 @@ namespace DefaultNamespace
         public string Message;
         public Channel Feature;
         public string TextOnCalendarTile;
+        public Person SenderPerson;
 
         public CheckResponse GetBadResponse(int gameTicks)
         {
@@ -31,9 +32,16 @@ namespace DefaultNamespace
 
     public enum CheckMarkerId
     {
-        Test1,
-        Test2,
-        Test3
+        C1,
+        C2,
+        C3,
+        C4,
+        C5,
+        C6,
+        C7,
+        C8,
+        C9,
+        C10
     }
 
     public class SetMarker

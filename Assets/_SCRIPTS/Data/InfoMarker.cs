@@ -4,20 +4,14 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
-    public class InfoMarker
+    [CreateAssetMenu(fileName = "InfoMarker", menuName = "Scriptable Objects/InfoMarker")]
+    public class InfoMarker : ScriptableObject
     {
-        [SerializeField]
         public string Message;
-        [SerializeField]
         public GameTime Timestamp;
-        [SerializeField]
         public string DevNotes;
-        [SerializeField]
         public Channel Feature;
-        [SerializeField]
         public Person SenderPerson;
-        [SerializeField]
         public ReceivedNewsData ReceivedNewsData;
     }
 }

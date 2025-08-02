@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/Person")]
-    public class ReceivedNewsData : ScriptableObject
+    [Serializable]
+    public class ReceivedNewsData
     {
-        [SerializeField] public string Header;
-        [SerializeField] public string Body;
+        public string Header;
+        public string Body;
     }
 }
