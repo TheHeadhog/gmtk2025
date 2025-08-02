@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
     [Serializable]
-    public class InfoMarker
+    public class InfoMarker : ScriptableObject
     {
-        public string message;
+        public string Message;
         public GameTime Timestamp;
     }
 }
