@@ -6,4 +6,6 @@ using UnityEngine;
 public class DayLevelSettings : ScriptableObject
 {
     public List<InfoMarker> InfoMarkers;
+    public List<BullshitMarker> BullshitMarkers;
+    public List<CheckMarker> CheckMarkers;
 }
