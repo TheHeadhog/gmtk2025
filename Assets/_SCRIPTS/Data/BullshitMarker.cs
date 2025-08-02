@@ -10,5 +10,6 @@ namespace DefaultNamespace
         public GameTime Timestamp;
         public Channel Feature;
         public Person SenderPerson;
+        public ReceivedNewsData ReceivedNewsData;
     }
 }

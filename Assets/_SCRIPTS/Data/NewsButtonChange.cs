@@ -39,12 +39,14 @@ public class NewsButtonChange : MonoBehaviour
         ChangeNewsPreview(newsData[0]);
         GameEvents.OnNewsButtonClicked += ChangeNewsPreview;
         GameEvents.OnInfoMarkerAppear +=  OnInfoMarkerAppeared;
+        GameEvents.OnBullshitMarkerAppear += OnBullshitMarkerAppeared;
     }
 
     void OnDestroy()
     {
         GameEvents.OnNewsButtonClicked -= ChangeNewsPreview;
         GameEvents.OnInfoMarkerAppear -= OnInfoMarkerAppeared;
+        GameEvents.OnBullshitMarkerAppear -= OnBullshitMarkerAppeared;
     }
 
     private void ChangeNewsPreview(NewsData newsData)
@@ -88,6 +90,12 @@ public class NewsButtonChange : MonoBehaviour
     }
 
     private void OnInfoMarkerAppeared(InfoMarker marker)
+    {
+        UpdateNewsDataList(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body);
+        ChangeNewsPreview(new NewsData(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body, CurrentTabNumber));
+    }
+    
+    private void OnBullshitMarkerAppeared(BullshitMarker marker)
     {
         UpdateNewsDataList(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body);
         ChangeNewsPreview(new NewsData(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body, CurrentTabNumber));
