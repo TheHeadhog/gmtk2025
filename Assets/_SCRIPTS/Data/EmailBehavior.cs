@@ -9,13 +9,16 @@ public class EmailBehavior : MonoBehaviour
 {
     private List<EmailData> emailList = new List<EmailData>()
     {
-        new EmailData("MAIL HEADER1","This is mail body 1"),
-        new EmailData("MAIL HEADER2","This is mail body 2"),
-        new EmailData("MAIL HEADER3","This is mail body 3"),
+        new EmailData("SENDER 1","MAIL HEADER1","This is mail body 1"),
+        new EmailData("SENDER 2","MAIL HEADER2","This is mail body 2"),
+        new EmailData("SENDER 3","MAIL HEADER3","This is mail body 3"),
     };
     private int CurrentlySelectedEmailId = 0;
     [SerializeField] 
     private GameObject emailListGameObject;
+    [Header("MailPreviewReferences")]
+    [SerializeField]
+    private TMP_Text Sender;
     [SerializeField]
     private TMP_Text Header;
     [SerializeField]
@@ -47,5 +50,6 @@ public class EmailBehavior : MonoBehaviour
     {
         Header.text = emailList[CurrentlySelectedEmailId].Header;
         Body.text = emailList[CurrentlySelectedEmailId].Body;
+        Sender.text = emailList[CurrentlySelectedEmailId].Sender;
     }
 }
