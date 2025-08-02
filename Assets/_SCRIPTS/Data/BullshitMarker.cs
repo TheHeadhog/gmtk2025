@@ -11,5 +11,6 @@ namespace DefaultNamespace
         public Channel Feature;
         public Person SenderPerson;
         public ReceivedNewsData ReceivedNewsData;
+        public EmailData EmailData;
     }
 }

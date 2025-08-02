@@ -22,5 +22,12 @@ namespace DefaultNamespace
             Body = infoMarker.Message;
             Sender = "Sender"; //todo stevanp: get real person data here
         }
+
+        public EmailData(BullshitMarker bullshitMarker)
+        {
+            Header = $"Header {GUID.Generate()}";
+            Body = bullshitMarker.Message;
+            Sender = "Sender"; //todo stevanp: get real person data here as well
+        }
     };
 }

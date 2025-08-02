@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using TMPro;
@@ -28,8 +29,16 @@ public class EmailBehavior : MonoBehaviour
     {
         GameEvents.OnInfoMarkerAppear += OnInfoMarkerAppear;
         GameEvents.OnEmailClicked += ChangeEmailPreview;
+        GameEvents.OnBullshitMarkerAppear += OnBullshitMarkerAppear;
         UpdateMailList();
         UpdatePreviewMail(emailList.Find((_ => true)));
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.OnInfoMarkerAppear -= OnInfoMarkerAppear;
+        GameEvents.OnEmailClicked -= ChangeEmailPreview;
+        GameEvents.OnBullshitMarkerAppear -= OnBullshitMarkerAppear;
     }
 
     private void ChangeEmailPreview(EmailData newPreviewMail)
@@ -38,6 +47,12 @@ public class EmailBehavior : MonoBehaviour
     }
 
     private void OnInfoMarkerAppear(InfoMarker marker)
+    {
+        emailList.Add(new EmailData(marker));
+        UpdateMailList();
+    }
+    
+    private void OnBullshitMarkerAppear(BullshitMarker marker)
     {
         emailList.Add(new EmailData(marker));
         UpdateMailList();
