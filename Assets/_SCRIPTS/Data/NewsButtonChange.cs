@@ -34,7 +34,7 @@ public class NewsButtonChange : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
         ChangeNewsPreview(newsData[0]);
         GameEvents.OnNewsButtonClicked += ChangeNewsPreview;
@@ -42,7 +42,7 @@ public class NewsButtonChange : MonoBehaviour
         GameEvents.OnBullshitMarkerAppear += OnBullshitMarkerAppeared;
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         GameEvents.OnNewsButtonClicked -= ChangeNewsPreview;
         GameEvents.OnInfoMarkerAppear -= OnInfoMarkerAppeared;

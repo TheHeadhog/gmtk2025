@@ -11,6 +11,7 @@ public static class GameEvents
     public static event Action<BullshitMarker> OnBullshitMarkerAppear;
     public static event Action<EmailData> OnEmailClicked;
     public static event Action<NewsData> OnNewsButtonClicked;
+    public static event Action<bool> OnPauseGameKeyPressed;
 
     public static void RaiseGameStart() => OnGameStart?.Invoke();
     public static void RaiseGameTimeChanged(int gameTime) => GameTimeChanged?.Invoke(gameTime);
@@ -20,4 +21,5 @@ public static class GameEvents
     public static void RaiseBullshitMarkerAppear(BullshitMarker marker) => OnBullshitMarkerAppear?.Invoke(marker);
     public static void RaiseEmailClicked(EmailData emailData)=> OnEmailClicked?.Invoke(emailData);
     public static void RaiseNewsButtonClicked(NewsData newsData) => OnNewsButtonClicked?.Invoke(newsData);
+    public static void RaisePauseGameKeyPressed(bool pause) => OnPauseGameKeyPressed?.Invoke(pause);
 }

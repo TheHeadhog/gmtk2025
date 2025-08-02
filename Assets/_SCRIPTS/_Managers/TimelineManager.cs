@@ -43,13 +43,13 @@ public class TimelineManager : SingletonPersistent<TimelineManager>
         ResumeGame();
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         isGameRunning = true;
         timelineCoroutine = StartCoroutine(CountGameTicksCoroutine());
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         isGameRunning = false;
         StopCoroutine(timelineCoroutine);
