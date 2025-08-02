@@ -261,6 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6113370459071844661}
+  - component: {fileID: 8674615486547381561}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -287,6 +288,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &8674615486547381561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255688066305194891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1299977570025600779
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8951274a5490a49bdb8317aef2c1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailListGameObject: {fileID: 0}
+  emailListGameObject: {fileID: 1255688066305194891}
   Sender: {fileID: 5894132464815526705}
   Header: {fileID: 7524911384471903175}
   Body: {fileID: 8185952104949125645}
@@ -659,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 6113370459071844661}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
