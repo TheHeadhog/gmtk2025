@@ -25,11 +25,6 @@ namespace _Managers
         {
             var infoMarkers = allInfoMarkers.Where(m => m.Timestamp.ToGameTick() == gameTick).ToList();
 
-            if (infoMarkers.Count == 0)
-            {
-                return;
-            }
-
             foreach (var infoMarker in infoMarkers)
             {
                 GameEvents.RaiseInfoMarkerAppear(infoMarker);

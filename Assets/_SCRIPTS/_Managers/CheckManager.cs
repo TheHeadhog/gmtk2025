@@ -19,7 +19,7 @@ public class CheckManager : SingletonPersistent<CheckManager>
         GameEvents.GameTimeChanged -= CheckGameTick;
     }
 
-    public void SetNewMarker(SetMarker setMarker)
+    public void SetNewSetMarker(SetMarker setMarker)
     {
         setMarkers.Add(setMarker);
     }
