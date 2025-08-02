@@ -10,6 +10,11 @@ public class TimeTick : MonoBehaviour
         GameEvents.GameTimeChanged += OnGameTimeChanged;
     }
 
+    private void OnDestroy()
+    {
+        GameEvents.GameTimeChanged -= OnGameTimeChanged;
+    }
+
     private void OnGameTimeChanged(int gameTick)
     {
         var gameTime = gameTick.FromGameTick();
