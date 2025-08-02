@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1134338639163838032, guid: da12d67128c0d3c4a957d27ce8f57fd6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.0006538849
-      objectReference: {fileID: 0}
     - target: {fileID: 4761184580283015669, guid: da12d67128c0d3c4a957d27ce8f57fd6, type: 3}
       propertyPath: m_Name
       value: CalendarUI
@@ -222,10 +218,6 @@ PrefabInstance:
     - target: {fileID: 6952661299196875044, guid: da12d67128c0d3c4a957d27ce8f57fd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8920653184798905669, guid: da12d67128c0d3c4a957d27ce8f57fd6, type: 3}
-      propertyPath: m_Size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -681,7 +673,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

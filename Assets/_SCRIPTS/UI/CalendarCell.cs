@@ -10,15 +10,15 @@ public class CalendarCell : MonoBehaviour
     public CellState State { get; private set; } = CellState.Normal;
     public RectTransform Rect { get; private set; }
 
-    [SerializeField] private Color normalColor = new(0, 0.4f, 0.25f, 0);
-    [SerializeField] private Color highlightColor = new(0, 0.5f, 0.3f, 0.3f);
-    [SerializeField] private Color occupiedColor = new(0, 0.4f, 0.25f, 1);
+    [SerializeField] private Color normalColor;
+    [SerializeField] private Color normalColorYellow;
+    [SerializeField] private Color highlightColor;
+    [SerializeField] private Color occupiedColor;
 
-    private Image background;
+    [SerializeField] private Image background;
 
     private void Awake()
     {
-        background = GetComponent<Image>();
         Rect = GetComponent<RectTransform>();
     }
 
@@ -31,12 +31,14 @@ public class CalendarCell : MonoBehaviour
     public void SetState(CellState state)
     {
         State = state;
-        background.color = state switch
+        if (state == CellState.Highlighted)
+            background.color = highlightColor;
+        else if (state == CellState.Occupied)
+            background.color = occupiedColor;
+        else if (state == CellState.Normal)
         {
-            CellState.Highlighted => highlightColor,
-            CellState.Occupied => occupiedColor,
-            _ => normalColor
-        };
+            background.color = transform.GetSiblingIndex()%2==0?normalColor:normalColorYellow;
+        }
     }
 }
 
