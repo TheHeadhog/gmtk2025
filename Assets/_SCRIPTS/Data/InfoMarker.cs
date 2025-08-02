@@ -17,5 +17,7 @@ namespace DefaultNamespace
         public Channel Feature;
         [SerializeField]
         public Person SenderPerson;
+        [SerializeField]
+        public ReceivedNewsData ReceivedNewsData;
     }
 }

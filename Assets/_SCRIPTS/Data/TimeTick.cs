@@ -3,6 +3,7 @@ using TMPro;
 
 public class TimeTick : MonoBehaviour
 {
+    [SerializeField]
     private TMP_Text TimeLabel;
     
     private void Start()
