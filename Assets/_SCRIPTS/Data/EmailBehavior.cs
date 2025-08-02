@@ -7,9 +7,9 @@ public class EmailBehavior : MonoBehaviour
 {
     private List<EmailData> emailList = new List<EmailData>()
     {
-        new EmailData("SENDER 1","MAIL HEADER1","This is mail body 1"),
-        new EmailData("SENDER 2","MAIL HEADER2","This is mail body 2"),
-        new EmailData("SENDER 3","MAIL HEADER3","This is mail body 3"),
+        new EmailData("greta hr","Disciplinary Chat (Confidential)","This is mail body 1"),
+        new EmailData("bob","You Have Lactose Intolerance","This is mail body 2"),
+        new EmailData("loopbot","Time Audit Alert","This is mail body 3"),
     };
     private int CurrentlySelectedEmailId = 0;
     [SerializeField] 
