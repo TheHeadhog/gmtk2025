@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DefaultNamespace;
+using Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -91,12 +92,14 @@ public class NewsButtonChange : MonoBehaviour
 
     private void OnInfoMarkerAppeared(InfoMarker marker)
     {
+        if (marker.Feature != Channel.NEWS) return;
         UpdateNewsDataList(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body);
         ChangeNewsPreview(new NewsData(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body, CurrentTabNumber));
     }
     
     private void OnBullshitMarkerAppeared(BullshitMarker marker)
     {
+        if (marker.Feature !=  Channel.NEWS) return;
         UpdateNewsDataList(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body);
         ChangeNewsPreview(new NewsData(marker.ReceivedNewsData.Header, marker.ReceivedNewsData.Body, CurrentTabNumber));
     }

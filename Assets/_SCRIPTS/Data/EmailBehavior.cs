@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Helpers;
 using TMPro;
 using UnityEngine;
 
@@ -48,12 +49,14 @@ public class EmailBehavior : MonoBehaviour
 
     private void OnInfoMarkerAppear(InfoMarker marker)
     {
+        if (marker.Feature != Channel.EMAIL) return;
         emailList.Add(new EmailData(marker));
         UpdateMailList();
     }
     
     private void OnBullshitMarkerAppear(BullshitMarker marker)
     {
+        if (marker.Feature != Channel.EMAIL) return;
         emailList.Add(new EmailData(marker));
         UpdateMailList();
     }
