@@ -3,6 +3,7 @@
     public enum Channel
     {
         EMAIL,
-        CALENDAR
+        CALENDAR,
+        NEWS
     }
 }
