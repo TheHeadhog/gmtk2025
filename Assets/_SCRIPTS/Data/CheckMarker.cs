@@ -10,6 +10,7 @@ namespace DefaultNamespace
     {
         public CheckMarkerId Id;
         public GameTime Timestamp;
+        public int DurationInGameTicks;
         public List<CheckResponse> Responses;
         public int Points;
         public string Message;
