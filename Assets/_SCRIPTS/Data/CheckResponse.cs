@@ -1,13 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
 
 namespace DefaultNamespace
 {
-    [CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/CheckResponse")]
-    public class CheckResponse : ScriptableObject
+    [Serializable]
+    public class CheckResponse
     {
         public string Message;
         public GameTime BeginTimestampInclusive;
         public GameTime EndTimestampExclusive;
         public int Points;
+
+        public CheckResponse(string message, int points)
+        {
+            Message = message;
+            Points = points;
+        }
     }
 }
