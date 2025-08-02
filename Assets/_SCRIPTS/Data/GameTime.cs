@@ -17,8 +17,3 @@ public static class GameTimeExtensions
         return (gameTime.Hours - 9) * 60 + gameTime.Minutes;
     }
 }
-
-public static class GameConfig
-{
-    public static float RealSecondsPerGameMinute = 1;
-}
