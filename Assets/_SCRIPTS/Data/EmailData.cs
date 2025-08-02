@@ -1,4 +1,7 @@
-﻿namespace DefaultNamespace
+﻿using System;
+using UnityEditor;
+
+namespace DefaultNamespace
 {
     public class EmailData
     {
@@ -11,6 +14,13 @@
             this.Header = header;
             this.Body = body;
             this.Sender = sender;
+        }
+
+        public EmailData(InfoMarker infoMarker)
+        {
+            Header = $"Header {GUID.Generate()}";
+            Body = infoMarker.Message;
+            Sender = "Sender"; //todo stevanp: get real person data here
         }
     };
 }

@@ -28,7 +28,13 @@ public class EmailBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameEvents.OnInfoMarkerAppear += OnInfoMarkerAppear;
+        UpdateMailList();
+    }
 
+    private void OnInfoMarkerAppear(InfoMarker marker)
+    {
+        emailList.Add(new EmailData(marker));
         UpdateMailList();
     }
 

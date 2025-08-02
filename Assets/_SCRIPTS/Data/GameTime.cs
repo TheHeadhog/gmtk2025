@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameSettings", menuName = "Scriptable Objects/GameTime")]
-public class GameTime : ScriptableObject
+[Serializable]
+public class GameTime
 {
     [Range(9, 17)] public int Hours;
     [Range(0, 59)] public int Minutes;
