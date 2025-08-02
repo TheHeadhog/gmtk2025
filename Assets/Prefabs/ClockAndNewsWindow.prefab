@@ -489,6 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2834621690477263554}
+  - component: {fileID: 6758991717324989690}
   m_Layer: 5
   m_Name: ClockAndNewsWindow
   m_TagString: Untagged
@@ -518,6 +519,20 @@ RectTransform:
   m_AnchoredPosition: {x: 2.5, y: -2.5}
   m_SizeDelta: {x: 305, y: 351}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6758991717324989690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703277512971109604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7bdf86ada274b1390fb1f5760b84196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDuration: 0.4
+  initialDelay: 0.4
 --- !u!1 &3608705953704942523
 GameObject:
   m_ObjectHideFlags: 0
