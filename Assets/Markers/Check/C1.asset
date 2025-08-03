@@ -22,4 +22,4 @@ MonoBehaviour:
   Message: Schedule the daily dev sync, I need caffeine-level updates.
   Feature: 0
   TextOnCalendarTile: Dev Sync
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: bf45f135a81a9bd43998a98c206d3119, type: 2}

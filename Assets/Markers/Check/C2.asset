@@ -22,4 +22,4 @@ MonoBehaviour:
   Message: Book a brainstorm at 10:30, we must name our new idle-clicker!
   Feature: 0
   TextOnCalendarTile: Mkt Brainstorm
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: 8d665ec11eb9e2c449bd7967ed711507, type: 2}

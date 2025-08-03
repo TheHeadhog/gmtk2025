@@ -18,7 +18,7 @@ MonoBehaviour:
     Minutes: 45
   DevNotes: affects C4
   Feature: 2
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: 89c4759baed7c344285bbbaddfe2a4ab, type: 2}
   ReceivedNewsData:
     Header: 
     Body: 

@@ -22,4 +22,4 @@ MonoBehaviour:
   Message: "Clients arrive 13:00 sharp\u2014demo must not crash (again)."
   Feature: 0
   TextOnCalendarTile: MegaPlay Visit
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: a7f1775a56c971f4eba1e5decc34869d, type: 2}

@@ -17,7 +17,7 @@ MonoBehaviour:
     Hours: 15
     Minutes: 0
   Feature: 2
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: 4e79c7c302401a34cb440e6b6aeb35a3, type: 2}
   ReceivedNewsData:
     Header: 
     Body: 

@@ -22,4 +22,4 @@ MonoBehaviour:
   Message: "CEO approved free snacks test\u2014schedule ASAP."
   Feature: 0
   TextOnCalendarTile: Snack Tasting
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: 308d4fe0b223c034ea417f11cb96253b, type: 2}

@@ -22,4 +22,4 @@ MonoBehaviour:
   Message: "Book audit: apparently passwords like \u2018password\u2019 are bad."
   Feature: 0
   TextOnCalendarTile: Security Audit
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: b01b0c7d1f35d9a4d9843199cb556cce, type: 2}

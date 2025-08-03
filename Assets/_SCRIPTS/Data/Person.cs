@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    [Serializable]
+    [CreateAssetMenu(fileName = "Person", menuName = "Scriptable Objects/Person")]
     public class Person : ScriptableObject
     {
         public string FullName;

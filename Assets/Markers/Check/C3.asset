@@ -22,4 +22,4 @@ MonoBehaviour:
   Message: "Investors want numbers (and memes) before lunch\u2014slot me in."
   Feature: 0
   TextOnCalendarTile: Investor Call
-  SenderPerson: {fileID: 0}
+  SenderPerson: {fileID: 11400000, guid: 1c11b433c1b97a74e82d5f485e14218d, type: 2}
