@@ -23,7 +23,7 @@ public class EmailListItemBehavior : MonoBehaviour
     {
         this.emailData = emailData;
         header.text = emailData.Header;
-        sender.text = emailData.Sender;
+        sender.text = emailData.SenderName;
     }
 
     public void OnClick()

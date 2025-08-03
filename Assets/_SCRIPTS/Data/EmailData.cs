@@ -3,31 +3,45 @@ using UnityEditor;
 
 namespace DefaultNamespace
 {
-    public class EmailData
+    public struct EmailData
     {
-        public string Sender;
-        public string Header;
+        public string SenderName;
+        public string SenderEmail;
         public string Body;
 
-        public EmailData(string sender,string header, string body)
+        public string Header => GetFirstTwoWords(Body);
+
+        public EmailData(string senderName,string senderEmail, string body)
         {
-            this.Header = header;
+            this.SenderEmail = senderEmail;
             this.Body = body;
-            this.Sender = sender;
+            this.SenderName = senderName;
         }
 
         public EmailData(InfoMarker infoMarker)
         {
-            Header = $"Header {GUID.Generate()}";
+            SenderEmail = infoMarker.SenderPerson.Email;
             Body = infoMarker.Message;
-            Sender = "Sender"; //todo stevanp: get real person data here
+            SenderName = infoMarker.SenderPerson.FullName;
         }
 
         public EmailData(BullshitMarker bullshitMarker)
         {
-            Header = $"Header {GUID.Generate()}";
+            SenderEmail = bullshitMarker.SenderPerson.Email;
             Body = bullshitMarker.Message;
-            Sender = "Sender"; //todo stevanp: get real person data here as well
+            SenderName = bullshitMarker.SenderPerson.FullName;
+        }
+
+        private string GetFirstTwoWords(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return string.Empty;
+            }
+
+            var parts = input.Split(new[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            return parts.Length >= 2 ? $"{parts[0]} {parts[1]}" : parts[0];
         }
     };
 }

@@ -43,8 +43,6 @@ public static class CSVMarkerImporter
             marker.Timestamp = new GameTime(hour, minute);
             marker.Feature   = Enum.TryParse(channel, out Channel feat) ? feat : Channel.CHAT; // default
             marker.SenderPerson = null;             // hook up your Person assets here
-            marker.ReceivedNewsData = null;
-            marker.EmailData        = null;
 
             string assetPath = $"{targetDir}/{id}.asset";
             AssetDatabase.CreateAsset(marker, assetPath);

@@ -47,7 +47,6 @@ public static class CSVInfoMarkerImporter
             marker.DevNotes  = devNotes;
             marker.Feature   = Enum.TryParse(channel, out Channel ch) ? ch : Channel.CHAT;
             marker.SenderPerson      = null;              // hook to Person asset if desired
-            marker.ReceivedNewsData  = null;
 
             string assetPath = $"{targetDir}/{idStr}.asset";
             AssetDatabase.CreateAsset(marker, assetPath);

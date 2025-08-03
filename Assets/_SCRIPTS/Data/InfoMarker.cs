@@ -12,6 +12,6 @@ namespace DefaultNamespace
         public string DevNotes;
         public Channel Feature;
         public Person SenderPerson;
-        public ReceivedNewsData ReceivedNewsData;
+        public ReceivedNewsData ReceivedNewsData => new(Message);
     }
 }

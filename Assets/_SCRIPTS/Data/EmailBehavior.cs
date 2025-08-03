@@ -73,18 +73,11 @@ public class EmailBehavior : MonoBehaviour
             newEmailListItem.GetComponent<EmailListItemBehavior>().UpdateView(emailData);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     private void UpdatePreviewMail(EmailData emailData)
     {
-        if (emailData is null) return;
         Header.text = emailData.Header;
         Body.text = emailData.Body;
-        Sender.text = emailData.Sender;
+        Sender.text = emailData.SenderName;
     }
 }

@@ -10,7 +10,7 @@ namespace DefaultNamespace
         public GameTime Timestamp;
         public Channel Feature;
         public Person SenderPerson;
-        public ReceivedNewsData ReceivedNewsData;
-        public EmailData EmailData;
+        public ReceivedNewsData ReceivedNewsData => new(Message);
+        public EmailData EmailData => new(this);
     }
 }
