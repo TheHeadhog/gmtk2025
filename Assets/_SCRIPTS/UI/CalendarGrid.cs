@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CalendarGrid : MonoBehaviour
 {
@@ -33,6 +33,7 @@ public class CalendarGrid : MonoBehaviour
                 cell.Init(gameTime);
                 cells.Add(cell);
             }
+            
         }
     }
 

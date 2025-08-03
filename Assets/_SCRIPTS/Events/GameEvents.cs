@@ -1,12 +1,13 @@
 using System;
 using DefaultNamespace;
+using JetBrains.Annotations;
 
 public static class GameEvents
 {
     public static event Action OnGameStart;
     public static event Action<int> GameTimeChanged;
-    public static event Action<CheckResponse> OnBadResponse;
-    public static event Action<CheckResponse> OnGoodResponse;
+    public static event Action<CheckResponse,Person> OnBadResponse;
+    public static event Action<CheckResponse,Person> OnGoodResponse;
     public static event Action<InfoMarker> OnInfoMarkerAppear;
     public static event Action<BullshitMarker> OnBullshitMarkerAppear;
     public static event Action<EmailData> OnEmailClicked;
@@ -15,8 +16,8 @@ public static class GameEvents
 
     public static void RaiseGameStart() => OnGameStart?.Invoke();
     public static void RaiseGameTimeChanged(int gameTime) => GameTimeChanged?.Invoke(gameTime);
-    public static void RaiseBadResponse(CheckResponse response) => OnBadResponse?.Invoke(response);
-    public static void RaiseGoodResponse(CheckResponse response) => OnGoodResponse?.Invoke(response);
+    public static void RaiseBadResponse(CheckResponse response,[CanBeNull] Person person) => OnBadResponse?.Invoke(response,person);
+    public static void RaiseGoodResponse(CheckResponse response,[CanBeNull] Person person) => OnGoodResponse?.Invoke(response,person);
     public static void RaiseInfoMarkerAppear(InfoMarker marker) => OnInfoMarkerAppear?.Invoke(marker);
     public static void RaiseBullshitMarkerAppear(BullshitMarker marker) => OnBullshitMarkerAppear?.Invoke(marker);
     public static void RaiseEmailClicked(EmailData emailData)=> OnEmailClicked?.Invoke(emailData);

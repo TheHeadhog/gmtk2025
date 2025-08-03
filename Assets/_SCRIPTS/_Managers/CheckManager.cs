@@ -50,20 +50,20 @@ public class CheckManager : SingletonPersistent<CheckManager>
 
             if (setMarker.Id == checkMarker.Id)
             {
-                GameEvents.RaiseGoodResponse(checkMarker.GetGoodResponse());
+                GameEvents.RaiseGoodResponse(checkMarker.GetGoodResponse(),checkMarker.SenderPerson);
                 return;
             }
             
-            GameEvents.RaiseBadResponse(checkMarker.GetBadResponse(gameTick));
-            GameEvents.RaiseBadResponse(GetMarker(setMarker).GetBadResponse(gameTick));
+            GameEvents.RaiseBadResponse(checkMarker.GetBadResponse(gameTick),checkMarker.SenderPerson);
+            GameEvents.RaiseBadResponse(GetMarker(setMarker).GetBadResponse(gameTick),checkMarker.SenderPerson);
         }
         else if (isThereAnyCheckMarker)
         {
-            GameEvents.RaiseBadResponse(checkMarkersInCurrentTick[0].GetBadResponse(gameTick));
+            GameEvents.RaiseBadResponse(checkMarkersInCurrentTick[0].GetBadResponse(gameTick),null);
         }
         else
         {
-            GameEvents.RaiseBadResponse(GetMarker(setMarkersInCurrentTick[0]).GetBadResponse(gameTick));
+            GameEvents.RaiseBadResponse(GetMarker(setMarkersInCurrentTick[0]).GetBadResponse(gameTick),null);
         }
     }
     
