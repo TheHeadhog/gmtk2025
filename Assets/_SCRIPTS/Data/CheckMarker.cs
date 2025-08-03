@@ -18,11 +18,14 @@ namespace DefaultNamespace
         public string TextOnCalendarTile;
         public Person SenderPerson;
         public string GoodResponse;
+
+        private const string DefaultResponse = "Why did you screw up my meeting???";
         
         public CheckResponse GetBadResponse(int gameTicks)
         {
-            return Responses.FirstOrDefault(r =>
+            var response = Responses.FirstOrDefault(r =>
                 gameTicks >= r.BeginTimestampInclusive.ToGameTick() && gameTicks < r.EndTimestampExclusive.ToGameTick());
+            return response ?? new CheckResponse(DefaultResponse, 0);
         }
 
         public CheckResponse GetGoodResponse()
