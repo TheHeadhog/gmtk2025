@@ -34,7 +34,6 @@ public static class CheckResponseGenerator
             }
 
             marker.GoodResponse = r.good;
-
             var list = new List<CheckResponse>();
 
             list.Add(new CheckResponse(r.badEarly,  -5)
