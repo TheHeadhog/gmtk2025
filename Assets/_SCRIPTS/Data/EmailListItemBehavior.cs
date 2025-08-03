@@ -19,6 +19,8 @@ public class EmailListItemBehavior : MonoBehaviour
 
     [SerializeField] private Color EmailGreenColor;
 
+    [SerializeField] private GameObject unread;
+
     public void UpdateView(EmailData emailData)
     {
         this.emailData = emailData;
@@ -30,5 +32,6 @@ public class EmailListItemBehavior : MonoBehaviour
     {
         GameEvents.RaiseEmailClicked(emailData);
         AudioSystem.Instance.Play(AudioSoundType.ClickSound);
+        unread.SetActive(false);
     }
 }

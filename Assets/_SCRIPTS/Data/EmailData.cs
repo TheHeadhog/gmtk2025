@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEditor;
+using UnityEngine;
 
 namespace DefaultNamespace
 {
@@ -8,21 +9,16 @@ namespace DefaultNamespace
         public string SenderName;
         public string SenderEmail;
         public string Body;
+        public Sprite Avatar;
 
         public string Header => GetFirstTwoWords(Body);
-
-        public EmailData(string senderName,string senderEmail, string body)
-        {
-            this.SenderEmail = senderEmail;
-            this.Body = body;
-            this.SenderName = senderName;
-        }
 
         public EmailData(InfoMarker infoMarker)
         {
             SenderEmail = infoMarker.SenderPerson.Email;
             Body = infoMarker.Message;
             SenderName = infoMarker.SenderPerson.FullName;
+            Avatar = infoMarker.SenderPerson.Avatar;
         }
 
         public EmailData(BullshitMarker bullshitMarker)
@@ -30,6 +26,7 @@ namespace DefaultNamespace
             SenderEmail = bullshitMarker.SenderPerson.Email;
             Body = bullshitMarker.Message;
             SenderName = bullshitMarker.SenderPerson.FullName;
+            Avatar = bullshitMarker.SenderPerson.Avatar;
         }
 
         private string GetFirstTwoWords(string input)
