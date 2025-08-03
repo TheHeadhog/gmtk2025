@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 11
     Minutes: 50
   DurationInMinutes: 40
-  Responses: []
+  Responses:
+  - Message: "Too early \u2013 investors still airborne."
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 12
+      Minutes: 10
+    Points: -5
+  - Message: "Investors called: \u2018Where\u2019s the link?\u2019 Nothing was scheduled!"
+    BeginTimestampInclusive:
+      Hours: 12
+      Minutes: 10
+    EndTimestampExclusive:
+      Hours: 12
+      Minutes: 20
+    Points: -15
+  - Message: "Dialling them after lunch? They\u2019ve left for golf."
+    BeginTimestampInclusive:
+      Hours: 12
+      Minutes: 30
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 15
   Message: "Investors want numbers (and memes) before lunch\u2014slot me in."
   Feature: 0
   TextOnCalendarTile: Investor Call
   SenderPerson: {fileID: 11400000, guid: 1c11b433c1b97a74e82d5f485e14218d, type: 2}
+  GoodResponse: "Call started exactly when the jet landed \u2013 investors impressed."

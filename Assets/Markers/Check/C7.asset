@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 15
     Minutes: 40
   DurationInMinutes: 20
-  Responses: []
+  Responses:
+  - Message: "Too early, vendor not here yet \u2013 no snacks, sad devs."
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 15
+      Minutes: 40
+    Points: -5
+  - Message: "Snack slot missed \u2013 vending machine uprising!"
+    BeginTimestampInclusive:
+      Hours: 15
+      Minutes: 40
+    EndTimestampExclusive:
+      Hours: 15
+      Minutes: 50
+    Points: -15
+  - Message: "Tasting at 16? Everyone\u2019s full, snacks stale."
+    BeginTimestampInclusive:
+      Hours: 16
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 5
   Message: "CEO approved free snacks test\u2014schedule ASAP."
   Feature: 0
   TextOnCalendarTile: Snack Tasting
   SenderPerson: {fileID: 11400000, guid: 308d4fe0b223c034ea417f11cb96253b, type: 2}
+  GoodResponse: Snacks tested, CEO satisfied, morale +50!

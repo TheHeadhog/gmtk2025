@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 16
     Minutes: 10
   DurationInMinutes: 30
-  Responses: []
+  Responses:
+  - Message: "Too early, firewall update still running \u2026"
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 15
+      Minutes: 50
+    Points: -5
+  - Message: "No audit when planned \u2013 hackers cheered."
+    BeginTimestampInclusive:
+      Hours: 16
+      Minutes: 10
+    EndTimestampExclusive:
+      Hours: 16
+      Minutes: 20
+    Points: -15
+  - Message: Audit after 16:30? SysAdmin went home.
+    BeginTimestampInclusive:
+      Hours: 16
+      Minutes: 40
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 12
   Message: "Book audit: apparently passwords like \u2018password\u2019 are bad."
   Feature: 0
   TextOnCalendarTile: Security Audit
   SenderPerson: {fileID: 11400000, guid: b01b0c7d1f35d9a4d9843199cb556cce, type: 2}
+  GoodResponse: "Audit on schedule \u2013 \u2018password\u2019 finally banned."

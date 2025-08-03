@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 16
     Minutes: 40
   DurationInMinutes: 20
-  Responses: []
+  Responses:
+  - Message: Debrief at 15? Too early, chaos still unfolding.
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 16
+      Minutes: 40
+    Points: -5
+  - Message: "No debrief \u2013 CEO furious, desk flipped."
+    BeginTimestampInclusive:
+      Hours: 16
+      Minutes: 40
+    EndTimestampExclusive:
+      Hours: 16
+      Minutes: 50
+    Points: -15
+  - Message: After 17? Too late, lights off.
+    BeginTimestampInclusive:
+      Hours: 17
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 10
   Message: Wrap-up at 16:40 before I rage-quit the day.
   Feature: 0
   TextOnCalendarTile: Daily Debrief
   SenderPerson: {fileID: 11400000, guid: bf45f135a81a9bd43998a98c206d3119, type: 2}
+  GoodResponse: "Day wrapped \u2013 CEO rage-quit avoided."

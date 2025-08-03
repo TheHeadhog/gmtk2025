@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 14
     Minutes: 20
   DurationInMinutes: 30
-  Responses: []
+  Responses:
+  - Message: "Scheduled before 14? Half the bugs weren\u2019t logged yet."
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 14
+      Minutes: 20
+    Points: -5
+  - Message: "QA room empty at slot \u2013 testers cry in binary."
+    BeginTimestampInclusive:
+      Hours: 14
+      Minutes: 20
+    EndTimestampExclusive:
+      Hours: 14
+      Minutes: 30
+    Points: -15
+  - Message: After 15? Too late, another 100 bugs spawned.
+    BeginTimestampInclusive:
+      Hours: 14
+      Minutes: 50
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 10
   Message: "Let\u2019s review the 2,147 known bugs\u2014optimistically."
   Feature: 0
   TextOnCalendarTile: QA Review
   SenderPerson: {fileID: 11400000, guid: 5b800c0c47f0f2e4c97ba276a887b0b8, type: 2}
+  GoodResponse: "Bug-crunch started on time \u2013 optimism intact."

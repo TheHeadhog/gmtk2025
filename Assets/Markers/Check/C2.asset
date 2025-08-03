@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 10
     Minutes: 30
   DurationInMinutes: 30
-  Responses: []
+  Responses:
+  - Message: Booked before coffee? No ideas come before caffeine.
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 10
+      Minutes: 30
+    Points: -5
+  - Message: "No brainstorm when the bell rang \u2013 marketing riots!"
+    BeginTimestampInclusive:
+      Hours: 10
+      Minutes: 30
+    EndTimestampExclusive:
+      Hours: 10
+      Minutes: 40
+    Points: -15
+  - Message: "Brainstorm after 11? Too late, trend\u2019s already dead."
+    BeginTimestampInclusive:
+      Hours: 11
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 10
   Message: Book a brainstorm at 10:30, we must name our new idle-clicker!
   Feature: 0
   TextOnCalendarTile: Mkt Brainstorm
   SenderPerson: {fileID: 11400000, guid: 8d665ec11eb9e2c449bd7967ed711507, type: 2}
+  GoodResponse: "Perfect slot \u2013 the naming storm begins!"

@@ -17,7 +17,8 @@ namespace DefaultNamespace
         public Channel Feature;
         public string TextOnCalendarTile;
         public Person SenderPerson;
-
+        public string GoodResponse;
+        
         public CheckResponse GetBadResponse(int gameTicks)
         {
             return Responses.FirstOrDefault(r =>
@@ -26,7 +27,7 @@ namespace DefaultNamespace
 
         public CheckResponse GetGoodResponse()
         {
-            return new CheckResponse(Message, Points);
+            return new CheckResponse(GoodResponse, Points);
         }
     }
 

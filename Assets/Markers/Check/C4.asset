@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 13
     Minutes: 0
   DurationInMinutes: 30
-  Responses: []
+  Responses:
+  - Message: Booked at 13 but traffic jam! Reschedule, please.
+    BeginTimestampInclusive:
+      Hours: 12
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 13
+      Minutes: 0
+    Points: -5
+  - Message: "No meeting when they arrived \u2013 awkward lobby silence."
+    BeginTimestampInclusive:
+      Hours: 14
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 14
+      Minutes: 10
+    Points: -15
+  - Message: Demo at 15? They already caught a flight.
+    BeginTimestampInclusive:
+      Hours: 14
+      Minutes: 30
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 12
   Message: "Clients arrive 13:00 sharp\u2014demo must not crash (again)."
   Feature: 0
   TextOnCalendarTile: MegaPlay Visit
   SenderPerson: {fileID: 11400000, guid: a7f1775a56c971f4eba1e5decc34869d, type: 2}
+  GoodResponse: "Client demo right on cue \u2013 nothing crashed!"

@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 9
     Minutes: 15
   DurationInMinutes: 20
-  Responses: []
+  Responses:
+  - Message: "Why did you book the sync so early? Build still compiling \u2026"
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 9
+      Minutes: 15
+    Points: -5
+  - Message: "Where\u2019s my dev-sync? Nobody showed up!"
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 15
+    EndTimestampExclusive:
+      Hours: 9
+      Minutes: 25
+    Points: -15
+  - Message: "Daily sync after stand-up? Too late, team\u2019s gone."
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 35
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 10
   Message: Schedule the daily dev sync, I need caffeine-level updates.
   Feature: 0
   TextOnCalendarTile: Dev Sync
   SenderPerson: {fileID: 11400000, guid: bf45f135a81a9bd43998a98c206d3119, type: 2}
+  GoodResponse: "Dev-sync right on time \u2013 caffeine keeps us alive!"

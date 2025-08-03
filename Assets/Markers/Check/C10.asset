@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 12
     Minutes: 20
   DurationInMinutes: 20
-  Responses: []
+  Responses:
+  - Message: Legal before 12? Regulators not awake yet.
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 12
+      Minutes: 20
+    Points: -5
+  - Message: "No meeting \u2013 we\u2019re legally doomed!"
+    BeginTimestampInclusive:
+      Hours: 12
+      Minutes: 20
+    EndTimestampExclusive:
+      Hours: 12
+      Minutes: 30
+    Points: -15
+  - Message: After 13? Store already live, too late.
+    BeginTimestampInclusive:
+      Hours: 12
+      Minutes: 40
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 10
   Message: "Need 20 min to swap \u2018loot boxes\u2019 for \u2018surprise mechanics.\u2019"
   Feature: 0
   TextOnCalendarTile: Terms Update
   SenderPerson: {fileID: 11400000, guid: 9d0bbc216c86f074d96a90ca07f6a9c3, type: 2}
+  GoodResponse: "T&Cs fixed \u2013 loot-boxes now \u2018surprise mechanics\u2019."

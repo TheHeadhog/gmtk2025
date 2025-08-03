@@ -17,9 +17,34 @@ MonoBehaviour:
     Hours: 15
     Minutes: 0
   DurationInMinutes: 20
-  Responses: []
+  Responses:
+  - Message: "Booked right after lunch coma \u2013 designer asleep."
+    BeginTimestampInclusive:
+      Hours: 9
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 15
+      Minutes: 0
+    Points: -5
+  - Message: "No review at the slot \u2013 colour chaos reigns!"
+    BeginTimestampInclusive:
+      Hours: 15
+      Minutes: 0
+    EndTimestampExclusive:
+      Hours: 15
+      Minutes: 10
+    Points: -15
+  - Message: After 15:30? Too late, build locked.
+    BeginTimestampInclusive:
+      Hours: 15
+      Minutes: 20
+    EndTimestampExclusive:
+      Hours: 17
+      Minutes: 0
+    Points: -5
   Points: 8
   Message: "Designer wants feedback: \u2018Is neon pink still neon?\u2019"
   Feature: 0
   TextOnCalendarTile: UI/UX Review
   SenderPerson: {fileID: 11400000, guid: 0d3434e373ee0d14287003294e94a813, type: 2}
+  GoodResponse: "Great timing \u2013 neon pink officially approved."
