@@ -40,6 +40,11 @@ public class BullshitPopupBehaviour : MonoBehaviour
         var popupType = allPopupTypes[0]; // Risk of there not being an element is mitigated through design
         allPopupTypes.RemoveAt(0);
 
+        OpenPopupOfType(popupType);
+    }
+
+    private void OpenPopupOfType(BullshitPopupType popupType)
+    {
         switch (popupType)
         {
             case BullshitPopupType.ANDREA:
