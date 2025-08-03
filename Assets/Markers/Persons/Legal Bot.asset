@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: Legal Bot
   Email: legal.bot@pixelplay.com
   PhoneNumber: +1-555-0109
+  Avatar: {fileID: 21300000, guid: 3fea7192f73b955479cd5fabfc69ed75, type: 3}

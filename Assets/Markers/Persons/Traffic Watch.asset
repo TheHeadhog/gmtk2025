@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: Traffic Watch
   Email: alerts@trafficwatch.net
   PhoneNumber: +1-555-0114
+  Avatar: {fileID: 21300000, guid: 80859c3ee724ae54b84e0336103260ba, type: 3}

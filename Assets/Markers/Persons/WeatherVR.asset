@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: WeatherVR
   Email: report@weathervr.com
   PhoneNumber: +1-555-0121
+  Avatar: {fileID: 21300000, guid: 25a2fb3ea43b0be498d811950c9d3f2f, type: 3}
