@@ -7,12 +7,6 @@ using UnityEngine;
 
 public class EmailBehavior : MonoBehaviour
 {
-    private List<EmailData> emailList = new List<EmailData>()
-    {
-        new EmailData("greta hr","Disciplinary Chat (Confidential)","This is mail body 1"),
-        new EmailData("bob","You Have Lactose Intolerance","This is mail body 2"),
-        new EmailData("loopbot","Time Audit Alert","This is mail body 3"),
-    };
     private int CurrentlySelectedEmailId = 0;
     [SerializeField] 
     private GameObject emailListGameObject;
@@ -25,7 +19,9 @@ public class EmailBehavior : MonoBehaviour
     private TMP_Text Body;
 
     [SerializeField] private GameObject EmailListItemPrefab;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    private List<EmailData> emailList = new();
+    
     void Start()
     {
         GameEvents.OnInfoMarkerAppear += OnInfoMarkerAppear;

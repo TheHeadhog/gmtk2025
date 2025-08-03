@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using DefaultNamespace;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 public class SetMarkerPool : MonoBehaviour
 {
@@ -9,15 +6,18 @@ public class SetMarkerPool : MonoBehaviour
 
     [SerializeField] private CalendarGrid grid;
 
-    [SerializeField] private List<CheckMarker> sourceMarkers;
-
     private void Start()
     {
         var checkManager = CheckManager.Instance;
-        foreach (var cm in sourceMarkers)
+        foreach (var cm in checkManager.AllCheckMarkers)
         {
             var ui = Instantiate(prefab, transform);
             ui.Init(cm, grid, checkManager);
         }
+    }
+
+    private void OnEnable()
+    {
+                
     }
 }

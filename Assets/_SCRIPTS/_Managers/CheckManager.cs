@@ -8,7 +8,8 @@ public class CheckManager : SingletonPersistent<CheckManager>
     [SerializeField] private List<CheckMarker> allCheckMarkers;
 
     private List<SetMarker> setMarkers = new();
-
+    public List<CheckMarker> AllCheckMarkers => allCheckMarkers;
+    
     private void OnEnable()
     {
         GameEvents.GameTimeChanged += CheckGameTick;
