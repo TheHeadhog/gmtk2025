@@ -51,6 +51,7 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
     {
         yield return new WaitForSeconds(initialDelay);
 
+        transform.SetAsLastSibling();
         transform.DOScale(initialScale, openDuration).SetEase(Ease.OutExpo).OnComplete(() => OnOpened?.Invoke());
     }
     
