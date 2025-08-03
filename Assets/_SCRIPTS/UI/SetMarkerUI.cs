@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -7,10 +8,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RectTransform))]
 public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-    private const int SizePer10Minutes = 15;
+    private const int SizePer10Minutes = 25;
     
     [SerializeField] private Image backgroundImage;
-    [SerializeField] private Color dragColor = new(1, 1, 1, 0.6f);
+    [SerializeField] private TMP_Text titleText;
+    [SerializeField] private TMP_Text bodyText;
+    [SerializeField] private Color normalBackgroundColor = new(1, 1, 1, 0.6f);
+    [SerializeField] private Color dragBackgroundColor = new(1, 1, 1, 0.6f);
 
     private RectTransform rect;
     private RectTransform parentRect;
@@ -40,11 +44,13 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         parentRect = transform.parent.GetComponent<RectTransform>();
         layoutElement = GetComponent<LayoutElement>();
         homePos = rect.anchoredPosition;
+
+        titleText.text = marker.Message;
+        bodyText.text = $"{marker.SenderPerson}\n{marker.DurationInMinutes} min";
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        backgroundImage.color = dragColor;
         grabOffset = eventData.position - new Vector2(rect.position.x, rect.position.y);
     }
 
@@ -55,6 +61,7 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             return;
         }
         
+        SetColors(true);
         rect.position = eventData.position - grabOffset;
         
         var cell = grid.GetCellAtPointer(eventData.position);
@@ -80,6 +87,13 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         grid.MarkRange(range, isPossibleToPlace ? CellState.Highlighted : CellState.Occupied);
     }
+
+    private void SetColors(bool isDragging)
+    {
+        backgroundImage.color = isDragging ? dragBackgroundColor : normalBackgroundColor;
+        titleText.color = isDragging ? normalBackgroundColor : dragBackgroundColor;
+        bodyText.color = isDragging ? normalBackgroundColor : dragBackgroundColor;
+    }
     
     private Vector2 ConvertAnchoredPosition(Transform from, RectTransform toParent)
     {
@@ -92,7 +106,8 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        backgroundImage.color = Color.white;
+        SetColors(false);
+
         var cell = grid.GetCellAtPointer(eventData.position);
         if (cell == null)
         {
