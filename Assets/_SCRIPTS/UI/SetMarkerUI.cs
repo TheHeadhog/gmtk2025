@@ -2,7 +2,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RectTransform))]
@@ -11,7 +10,7 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private const int SizePer10Minutes = 25;
     private const int LeftSideOffset = 113;
     private const int TopSideOffset = 12;
-    
+
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text bodyText;
@@ -25,10 +24,14 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private CalendarGrid grid;
     private CheckManager checkManager;
     private CheckMarker marker;
+
     private Vector3 homePos;
     private Vector3 targetAnchoredPos;
-    private bool isPlaced;
 
+    private bool isPlaced;
+    private bool dragLocked;
+    private int placedStartTick = -1;
+    
     public CheckMarkerId MarkerId => marker.Id;
     public int Duration => marker.DurationInMinutes;
 
@@ -37,12 +40,12 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         this.marker = marker;
         this.grid = grid;
         checkManager = cm;
-        
+
         rect = GetComponent<RectTransform>();
         Vector2 size = rect.sizeDelta;
-        size.y = (float)marker.DurationInMinutes / 10 * SizePer10Minutes;   
+        size.y = (float)marker.DurationInMinutes / 10 * SizePer10Minutes;
         rect.sizeDelta = size;
-        
+
         parentRect = transform.parent.GetComponent<RectTransform>();
         layoutElement = GetComponent<LayoutElement>();
         homePos = rect.anchoredPosition;
@@ -53,17 +56,34 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        grabOffset = eventData.position - new Vector2(rect.position.x, rect.position.y);
+        dragLocked = false;
+
+        if (isPlaced)
+        {
+            int currentTick = TimelineManager.Instance.GameTicks;
+            if (placedStartTick <= currentTick)
+            {
+                dragLocked = true;
+                return;
+            }
+
+            var prevRange = new TimeRange(placedStartTick, placedStartTick + Duration);
+            grid.MarkRange(prevRange, CellState.Normal);
+
+            isPlaced = false;
+        }
+
+        grabOffset = eventData.position - (Vector2)rect.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isPlaced) return;
-        SetColors(true);
+        if (dragLocked) return;
 
+        SetColors(true);
         rect.position = eventData.position - grabOffset;
 
-        Vector3 worldTop = rect.position + new Vector3(0, rect.rect.height / 2f, 0);
+        Vector3 worldTop = rect.position + Vector3.up * (rect.rect.height * 0.5f);
         var cell = grid.GetCellAtPointer(worldTop);
 
         grid.MarkRange(new TimeRange(0, 24 * 60), CellState.Normal);
@@ -72,47 +92,25 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         var range = new TimeRange(cell.Tick, cell.Tick + Duration);
 
-        bool isPossibleToPlace = range.BeginTick >= 0 && range.EndTick <= (8 * 60);
-        isPossibleToPlace &= grid.IsRangeFree(range);
+        bool isPossible =
+            range.BeginTick >= 0 &&
+            range.EndTick <= (8 * 60) &&
+            grid.IsRangeFree(range);
 
-        if (isPossibleToPlace)
+        if (isPossible)
         {
-            var firstCellAtRangeTransform = grid.GetFirstCellAtRange(range);
-            if (firstCellAtRangeTransform)
-            {
-                targetAnchoredPos = ConvertAnchoredPosition(firstCellAtRangeTransform, grid.GetComponent<RectTransform>());
-            }
+            var firstTf = grid.GetFirstCellAtRange(range);
+            if (firstTf)
+                targetAnchoredPos = ConvertAnchoredPosition(firstTf, grid.GetComponent<RectTransform>());
         }
 
-        grid.MarkRange(range, isPossibleToPlace ? CellState.Highlighted : CellState.Occupied);
+        grid.MarkRange(range, isPossible ? CellState.Highlighted : CellState.Occupied);
     }
-
-
-    private void SetColors(bool isDragging)
-    {
-        backgroundImage.color = isDragging ? dragBackgroundColor : normalBackgroundColor;
-        titleText.color = isDragging ? normalBackgroundColor : dragBackgroundColor;
-        bodyText.color = isDragging ? normalBackgroundColor : dragBackgroundColor;
-    }
-    
-    private Vector2 ConvertAnchoredPosition(Transform firstCellTf, RectTransform gridParent)
-    {
-        var firstCell = firstCellTf as RectTransform;
-
-        float worldTopY = firstCell.position.y + firstCell.rect.height * firstCell.lossyScale.y * 0.5f;
-
-        Vector2 localTop = gridParent.InverseTransformPoint(
-            new Vector3(firstCell.position.x, worldTopY, 0));
-
-        localTop.y -= rect.rect.height * 0.5f + TopSideOffset;
-        localTop.x = rect.sizeDelta.x * 0.5f;
-
-        return localTop;
-    }
-
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (dragLocked) return;
+
         SetColors(false);
 
         var cell = grid.GetCellAtPointer(eventData.position);
@@ -135,20 +133,18 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void PlaceMarker(GameTime startTime)
     {
-        if (isPlaced)
-        {
-            return;
-        }
+        if (isPlaced) return;
 
         var sm = new SetMarker { Id = MarkerId, Timestamp = startTime };
         layoutElement.ignoreLayout = true;
         checkManager.AddNewSetMarker(sm);
+
         isPlaced = true;
-        
+        placedStartTick = startTime.ToGameTick(); 
+
         rect.SetParent(grid.transform);
-        rect.anchoredPosition = targetAnchoredPos;
-        rect.anchoredPosition += Vector2.right * LeftSideOffset;
-        
+        rect.anchoredPosition = targetAnchoredPos + Vector3.right * LeftSideOffset;
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect);
     }
 
@@ -158,5 +154,26 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         layoutElement.ignoreLayout = false;
         grid.MarkRange(new TimeRange(0, 24 * 60), CellState.Normal);
         LayoutRebuilder.ForceRebuildLayoutImmediate(parentRect);
+    }
+
+    private void SetColors(bool isDragging)
+    {
+        backgroundImage.color = isDragging ? dragBackgroundColor : normalBackgroundColor;
+        titleText.color = isDragging ? normalBackgroundColor : dragBackgroundColor;
+        bodyText.color = isDragging ? normalBackgroundColor : dragBackgroundColor;
+    }
+
+    private Vector2 ConvertAnchoredPosition(Transform firstCellTf, RectTransform gridParent)
+    {
+        var firstCell = firstCellTf as RectTransform;
+
+        float worldTopY = firstCell.position.y + firstCell.rect.height * firstCell.lossyScale.y * 0.5f;
+
+        Vector2 localTop = gridParent.InverseTransformPoint(new Vector3(firstCell.position.x, worldTopY, 0));
+
+        localTop.y -= rect.rect.height * 0.5f + TopSideOffset;
+        localTop.x = rect.sizeDelta.x * 0.5f;
+
+        return localTop;
     }
 }
