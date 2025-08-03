@@ -1322,6 +1322,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4856899814353822848, guid: dee8609e845f28942849d13e771230ae, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5323025261525036982, guid: dee8609e845f28942849d13e771230ae, type: 3}
       propertyPath: m_Name
       value: Popups
@@ -1404,7 +1408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6491053770756205669, guid: dee8609e845f28942849d13e771230ae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00048649992
+      value: -0.00078843196
       objectReference: {fileID: 0}
     - target: {fileID: 7058420088594283952, guid: dee8609e845f28942849d13e771230ae, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1552,7 +1556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997705689040119257, guid: dee8609e845f28942849d13e771230ae, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00063976547
+      value: -0.00062490447
       objectReference: {fileID: 0}
     - target: {fileID: 9214226235461705997, guid: dee8609e845f28942849d13e771230ae, type: 3}
       propertyPath: m_Size
