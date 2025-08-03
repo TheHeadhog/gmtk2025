@@ -35,9 +35,7 @@ public class CalendarCell : MonoBehaviour
         State = state;
         if (state == CellState.Highlighted)
             background.color = highlightColor;
-        else if (state == CellState.Occupied)
-            background.color = occupiedColor;
-        else if (state == CellState.Normal)
+        else if (state == CellState.Normal || state == CellState.Occupied)
         {
             background.color = transform.GetSiblingIndex()%2==0?normalColor:normalColorYellow;
         }

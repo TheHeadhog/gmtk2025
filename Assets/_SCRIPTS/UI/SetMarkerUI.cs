@@ -48,7 +48,7 @@ public class SetMarkerUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         homePos = rect.anchoredPosition;
 
         titleText.text = marker.Message;
-        bodyText.text = $"{marker.SenderPerson.FullName}\n{marker.DurationInMinutes} min";
+        bodyText.text = $"{marker.SenderPerson.FullName}, {marker.DurationInMinutes} min";
     }
 
     public void OnPointerDown(PointerEventData eventData)
