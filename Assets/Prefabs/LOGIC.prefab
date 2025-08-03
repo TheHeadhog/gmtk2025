@@ -292,6 +292,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a26b41f97c325c045ab37ee130aed79c, type: 2}
   - {fileID: 11400000, guid: 1d98d15d6e3c30644b227b9217f724b4, type: 2}
   - {fileID: 11400000, guid: 997bf678676516649b4dc5c158589845, type: 2}
+  - {fileID: 11400000, guid: 3a13c995f9477c24fb80ff221b3ac4ef, type: 2}
+  - {fileID: 11400000, guid: c316df0dfc0574c45a46c54255d03b92, type: 2}
+  - {fileID: 11400000, guid: 4c8123045ea66c443bcb646257eff12b, type: 2}
+  - {fileID: 11400000, guid: 4d572a1dfaa225b448fbbef951b1e546, type: 2}
+  - {fileID: 11400000, guid: 8acf8ca308af17b4fbd3851107680c8c, type: 2}
+  - {fileID: 11400000, guid: 668737ceaf159914b9511dd2aa67ac8a, type: 2}
+  - {fileID: 11400000, guid: 026dad3d86cb4e84ab80f191edc23245, type: 2}
+  - {fileID: 11400000, guid: 8e4478d0d72597443a3d6e6f68529629, type: 2}
+  - {fileID: 11400000, guid: ee2a1a4144f27ac4c963ca1faac0f6c8, type: 2}
+  - {fileID: 11400000, guid: bfa3e1944bdefd64cae812902201b4b5, type: 2}
 --- !u!114 &4284628166533322981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +428,7 @@ MonoBehaviour:
   popupOpen: {fileID: 8300000, guid: 9ee44a2ef6a87e742ad9a842e53c0095, type: 3}
   systemBootUp: {fileID: 8300000, guid: c83d186f93e99b945b28e5c6b048fcb1, type: 3}
   systemBootUpVoiceover: {fileID: 8300000, guid: 227a5d9f896cc66459a58d3ce1284da8, type: 3}
-  pause: {fileID: 8300000, guid: 5637d3593f51274469fcc384475bc009, type: 3}
+  pauseMusic: {fileID: 8300000, guid: 5637d3593f51274469fcc384475bc009, type: 3}
 --- !u!1 &7104065927782037154
 GameObject:
   m_ObjectHideFlags: 0
