@@ -29,10 +29,12 @@ public class PausePopup : MonoBehaviour
     private void OpenPausePopup()
     {
         popup.OpenPopup();
+        AudioSystem.Instance.Play(AudioSoundType.PauseMusic);
     }
 
     private void ClosePausePopup()
     {
         popup.ClosePopup();
+        AudioSystem.Instance.Play(AudioSoundType.BackgroundMusic);
     }
 }

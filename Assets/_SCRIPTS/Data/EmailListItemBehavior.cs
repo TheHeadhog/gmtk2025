@@ -29,5 +29,6 @@ public class EmailListItemBehavior : MonoBehaviour
     public void OnClick()
     {
         GameEvents.RaiseEmailClicked(emailData);
+        AudioSystem.Instance.Play(AudioSoundType.ClickSound);
     }
 }

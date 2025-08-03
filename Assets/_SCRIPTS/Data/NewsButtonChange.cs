@@ -117,15 +117,18 @@ public class NewsButtonChange : MonoBehaviour
     public void OnButton1Clicked()
     {
         GameEvents.RaiseNewsButtonClicked(newsData[0]);
+        AudioSystem.Instance.Play(AudioSoundType.ClickSound);
     }
     
     public void OnButton2Clicked()
     {
         GameEvents.RaiseNewsButtonClicked(newsData[1]);
+        AudioSystem.Instance.Play(AudioSoundType.ClickSound);
     }
     
     public void OnButton3Clicked()
     {
         GameEvents.RaiseNewsButtonClicked(newsData[2]);
+        AudioSystem.Instance.Play(AudioSoundType.ClickSound);
     }
 }

@@ -35,6 +35,7 @@ public sealed class LogoStartAnimation : MonoBehaviour
 
     private void Start()
     {
+        AudioSystem.Instance.Play(AudioSoundType.BackgroundMusic);
         _startButton.AddOnClickListener(StartAnimation);
     }
 
@@ -54,5 +55,9 @@ public sealed class LogoStartAnimation : MonoBehaviour
             .SetEase(_buttonHideEase));
         _sequence.Append(_logo.DOScale(0f, _shrinkDuration).SetEase(_shrinkEase));
         _sequence.OnComplete(GameEvents.RaiseGameStart);
+        AudioSystem.Instance.Play(AudioSoundType.ClickSound);
+        AudioSystem.Instance.Play(AudioSoundType.SystemBootUp);
+        AudioSystem.Instance.Play(AudioSoundType.SystemBootUpVoiceover);
+        AudioSystem.Instance.Play(AudioSoundType.SystemBootUpVoiceover);
     }
 }

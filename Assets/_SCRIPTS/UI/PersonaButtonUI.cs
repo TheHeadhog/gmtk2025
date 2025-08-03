@@ -24,6 +24,7 @@ public class PersonaButtonUI : MonoBehaviour
 
     private void Clicked()
     {
+        AudioSystem.Instance.Play(AudioSoundType.ClickSound);
         _unread.SetActive(false);
         _onClick?.Invoke(_person);
     }
