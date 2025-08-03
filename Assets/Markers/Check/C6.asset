@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 8
+  Points: 1
   Message: "Designer wants feedback: \u2018Is neon pink still neon?\u2019"
   Feature: 0
   TextOnCalendarTile: UI/UX Review

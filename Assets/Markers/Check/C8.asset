@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 12
+  Points: 1
   Message: "Book audit: apparently passwords like \u2018password\u2019 are bad."
   Feature: 0
   TextOnCalendarTile: Security Audit

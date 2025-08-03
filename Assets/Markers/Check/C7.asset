@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 5
+  Points: 1
   Message: "CEO approved free snacks test\u2014schedule ASAP."
   Feature: 0
   TextOnCalendarTile: Snack Tasting

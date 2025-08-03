@@ -9,7 +9,9 @@ public class CheckManager : SingletonPersistent<CheckManager>
 
     private List<SetMarker> setMarkers = new();
     public List<CheckMarker> AllCheckMarkers => allCheckMarkers;
-    
+
+    public int Score { get; private set; }
+
     private void OnEnable()
     {
         GameEvents.GameTimeChanged += CheckGameTick;
@@ -32,7 +34,7 @@ public class CheckManager : SingletonPersistent<CheckManager>
 
         var isThereAnySetMarker = setMarkersInCurrentTick.Count != 0;
         var isThereAnyCheckMarker = checkMarkersInCurrentTick.Count != 0;
-        
+
         if (!isThereAnySetMarker && !isThereAnyCheckMarker)
         {
             return;
@@ -50,22 +52,25 @@ public class CheckManager : SingletonPersistent<CheckManager>
 
             if (setMarker.Id == checkMarker.Id)
             {
-                GameEvents.RaiseGoodResponse(checkMarker.GetGoodResponse(),checkMarker.SenderPerson);
+                GameEvents.RaiseGoodResponse(checkMarker.GetGoodResponse(), checkMarker.SenderPerson);
+                Score += checkMarker.Points;
                 return;
             }
-            
-            GameEvents.RaiseBadResponse(checkMarker.GetBadResponse(gameTick),checkMarker.SenderPerson);
-            GameEvents.RaiseBadResponse(GetMarker(setMarker).GetBadResponse(gameTick),checkMarker.SenderPerson);
+
+            GameEvents.RaiseBadResponse(checkMarker.GetBadResponse(gameTick), checkMarker.SenderPerson);
+            GameEvents.RaiseBadResponse(GetMarker(setMarker).GetBadResponse(gameTick), checkMarker.SenderPerson);
         }
         else if (isThereAnyCheckMarker)
         {
-            GameEvents.RaiseBadResponse(checkMarkersInCurrentTick[0].GetBadResponse(gameTick),null);
+            GameEvents.RaiseBadResponse(checkMarkersInCurrentTick[0].GetBadResponse(gameTick), null);
         }
         else
         {
-            GameEvents.RaiseBadResponse(GetMarker(setMarkersInCurrentTick[0]).GetBadResponse(gameTick),null);
+            GameEvents.RaiseBadResponse(GetMarker(setMarkersInCurrentTick[0]).GetBadResponse(gameTick), null);
         }
     }
-    
+
     private CheckMarker GetMarker(SetMarker setMarker) => allCheckMarkers.FirstOrDefault(m => m.Id == setMarker.Id);
+    
+    public float CalculateFinalScore() => (float)allCheckMarkers.Sum(c => c.Points) / allCheckMarkers.Count;
 }

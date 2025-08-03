@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 10
+  Points: 1
   Message: Schedule the daily dev sync, I need caffeine-level updates.
   Feature: 0
   TextOnCalendarTile: Dev Sync

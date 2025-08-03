@@ -10,7 +10,9 @@ public class TimelineManager : SingletonPersistent<TimelineManager>
     private Coroutine timelineCoroutine;
 
     private int gameTicks;
-
+    private GameTime endGameTime = new(17, 0);
+    
+    
     private void OnEnable()
     {
         GameEvents.OnGameStart += StartGame;
@@ -61,6 +63,12 @@ public class TimelineManager : SingletonPersistent<TimelineManager>
         {
             yield return waitTime;
             GameTicks++;
+
+            if (GameTicks == endGameTime.ToGameTick())
+            {
+                GameEvents.RaiseGameEnd(CheckManager.Instance.CalculateFinalScore());
+                isGameRunning = false;
+;            }
         }
     }
 }

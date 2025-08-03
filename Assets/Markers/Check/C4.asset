@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 12
+  Points: 1
   Message: "Clients arrive 13:00 sharp\u2014demo must not crash (again)."
   Feature: 0
   TextOnCalendarTile: MegaPlay Visit

@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 15
+  Points: 1
   Message: "Investors want numbers (and memes) before lunch\u2014slot me in."
   Feature: 0
   TextOnCalendarTile: Investor Call

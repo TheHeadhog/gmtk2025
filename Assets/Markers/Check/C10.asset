@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 10
+  Points: 1
   Message: "Need 20 min to swap \u2018loot boxes\u2019 for \u2018surprise mechanics.\u2019"
   Feature: 0
   TextOnCalendarTile: Terms Update

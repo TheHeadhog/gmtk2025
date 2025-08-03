@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 public static class GameEvents
 {
     public static event Action OnGameStart;
+    public static event Action<float> OnGameEnd;
     public static event Action<int> GameTimeChanged;
     public static event Action<CheckResponse,Person> OnBadResponse;
     public static event Action<CheckResponse,Person> OnGoodResponse;
@@ -15,6 +16,7 @@ public static class GameEvents
     public static event Action<bool> OnPauseGameKeyPressed;
 
     public static void RaiseGameStart() => OnGameStart?.Invoke();
+    public static void RaiseGameEnd(float score) => OnGameEnd?.Invoke(score);
     public static void RaiseGameTimeChanged(int gameTime) => GameTimeChanged?.Invoke(gameTime);
     public static void RaiseBadResponse(CheckResponse response,[CanBeNull] Person person) => OnBadResponse?.Invoke(response,person);
     public static void RaiseGoodResponse(CheckResponse response,[CanBeNull] Person person) => OnGoodResponse?.Invoke(response,person);

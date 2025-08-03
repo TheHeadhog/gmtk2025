@@ -42,7 +42,7 @@ MonoBehaviour:
       Hours: 17
       Minutes: 0
     Points: -5
-  Points: 10
+  Points: 1
   Message: "Let\u2019s review the 2,147 known bugs\u2014optimistically."
   Feature: 0
   TextOnCalendarTile: QA Review
