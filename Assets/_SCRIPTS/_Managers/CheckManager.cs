@@ -62,11 +62,12 @@ public class CheckManager : SingletonPersistent<CheckManager>
         }
         else if (isThereAnyCheckMarker)
         {
-            GameEvents.RaiseBadResponse(checkMarkersInCurrentTick[0].GetBadResponse(gameTick), null);
+            GameEvents.RaiseBadResponse(checkMarkersInCurrentTick[0].GetBadResponse(gameTick),checkMarkersInCurrentTick[0].SenderPerson);
         }
         else
         {
-            GameEvents.RaiseBadResponse(GetMarker(setMarkersInCurrentTick[0]).GetBadResponse(gameTick), null);
+            var checkMarker = GetMarker(setMarkersInCurrentTick[0]);
+            GameEvents.RaiseBadResponse(checkMarker.GetBadResponse(gameTick),checkMarker.SenderPerson);
         }
     }
 

@@ -46,14 +46,14 @@ public class EmailBehavior : MonoBehaviour
     private void OnInfoMarkerAppear(InfoMarker marker)
     {
         if (marker.Feature != Channel.EMAIL) return;
-        emailList.Add(new EmailData(marker));
+        emailList.Insert(0, new EmailData(marker));
         UpdateMailList();
     }
     
     private void OnBullshitMarkerAppear(BullshitMarker marker)
     {
         if (marker.Feature != Channel.EMAIL) return;
-        emailList.Add(new EmailData(marker));
+        emailList.Insert(0, new EmailData(marker));
         UpdateMailList();
     }
 
