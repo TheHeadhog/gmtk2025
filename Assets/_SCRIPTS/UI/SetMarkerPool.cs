@@ -15,9 +15,4 @@ public class SetMarkerPool : MonoBehaviour
             ui.Init(cm, grid, checkManager);
         }
     }
-
-    private void OnEnable()
-    {
-                
-    }
 }
