@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: MemeIntern Mia
   Email: mia.meme@pixelplay.com
   PhoneNumber: +1-555-0110
+  Avatar: {fileID: 21300000, guid: a937f52532d5bff429c811dbcf196e80, type: 3}

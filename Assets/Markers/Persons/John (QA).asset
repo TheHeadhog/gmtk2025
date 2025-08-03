@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: John (QA)
   Email: john.qa@pixelplay.com
   PhoneNumber: +1-555-0101
+  Avatar: {fileID: 21300000, guid: d5e8dd96a4f98bd468ed7082a9228b37, type: 3}

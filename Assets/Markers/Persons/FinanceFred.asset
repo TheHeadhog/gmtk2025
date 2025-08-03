@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: FinanceFred
   Email: fred.finance@pixelplay.com
   PhoneNumber: +1-555-0107
+  Avatar: {fileID: 21300000, guid: 38a737428b37d434fb43ba1998ae79ea, type: 3}

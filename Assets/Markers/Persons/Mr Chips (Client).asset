@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: Mr Chips (Client)
   Email: mr.chips@megaplay.com
   PhoneNumber: +1-555-0113
+  Avatar: {fileID: 21300000, guid: d326af595d4ba3449a6a5c8cf2fe9b3d, type: 3}

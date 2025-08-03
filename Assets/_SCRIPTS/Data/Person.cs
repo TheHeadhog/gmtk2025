@@ -9,5 +9,6 @@ namespace DefaultNamespace
         public string FullName;
         public string Email;
         public string PhoneNumber;
+        public Sprite Avatar;
     }
 }

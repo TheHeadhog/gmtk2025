@@ -15,3 +15,4 @@ MonoBehaviour:
   FullName: Mr BigBucks
   Email: mr.bigbucks@venturecap.inc
   PhoneNumber: +1-555-0112
+  Avatar: {fileID: 21300000, guid: 5b9a0717c4ff2444a872ebc57181f5d6, type: 3}

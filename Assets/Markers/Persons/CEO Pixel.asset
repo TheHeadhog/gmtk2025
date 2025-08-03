@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd614a87cf6c4cb5b5b3f064d845319d, type: 3}
   m_Name: CEO Pixel
   m_EditorClassIdentifier: 
-  FullName: CEO Pixel
+  FullName: Boss
   Email: ceo@pixelplay.com
   PhoneNumber: +1-555-0000
+  Avatar: {fileID: 21300000, guid: 77ff2a3b6f1484041ac5f3f6b733c2d8, type: 3}
