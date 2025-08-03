@@ -5,6 +5,7 @@
         EMAIL,
         CALENDAR,
         NEWS,
-        CHAT
+        CHAT,
+        BSPOPUP
     }
 }
