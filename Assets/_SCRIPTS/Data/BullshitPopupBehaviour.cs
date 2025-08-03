@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BullshitPopupBehaviour : MonoBehaviour
 {
-    private List<BullshitPopupType> allPopupTypes;
+    private List<BullshitPopupType> allPopupTypes = new();
     
     [SerializeField] private Popup AndreaPopup;
     [SerializeField] private Popup BossCakePopup;
