@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,7 +36,6 @@ public sealed class LogoStartAnimation : MonoBehaviour
 
     private void Start()
     {
-        AudioSystem.Instance.Play(AudioSoundType.BackgroundMusic);
         _startButton.AddOnClickListener(StartAnimation);
     }
 
@@ -59,5 +59,13 @@ public sealed class LogoStartAnimation : MonoBehaviour
         AudioSystem.Instance.Play(AudioSoundType.SystemBootUp);
         AudioSystem.Instance.Play(AudioSoundType.SystemBootUpVoiceover);
         AudioSystem.Instance.Play(AudioSoundType.SystemBootUpVoiceover);
+        StartCoroutine(PlayDelayedBackgroundMusic());
+
+    }
+
+    private IEnumerator PlayDelayedBackgroundMusic()
+    {
+       yield return new WaitForSeconds(2f);
+        AudioSystem.Instance.Play(AudioSoundType.BackgroundMusic);
     }
 }
