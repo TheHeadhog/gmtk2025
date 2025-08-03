@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndPopup : MonoBehaviour
 {
@@ -26,5 +28,13 @@ public class EndPopup : MonoBehaviour
         };
         
         popup.OpenPopup();
+        StartCoroutine(ClosePopupCoroutine(popup));
+    }
+
+    private IEnumerator ClosePopupCoroutine(Popup popup)
+    {
+        yield return new WaitForSeconds(10);
+        popup.OnClosed += () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        popup.ClosePopup();
     }
 }

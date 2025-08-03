@@ -21,11 +21,13 @@ public class PopupsHandler : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnPauseGameKeyPressed += HandleOpenClose;
+        GameEvents.OnGameEnd += Close;
     }
 
     private void OnDisable()
     {
         GameEvents.OnPauseGameKeyPressed -= HandleOpenClose;
+        GameEvents.OnGameEnd -= Close;
     }
 
     private void HandleOpenClose(bool isOpening)
@@ -45,6 +47,8 @@ public class PopupsHandler : MonoBehaviour
         _rect.DOAnchorPos(_visiblePos, _slideDuration).SetEase(_slideEase);
     }
 
+    private void Close(float _) => Close();
+    
     private void Close()
     {
         _rect.DOAnchorPos(_hiddenPos, _slideDuration).SetEase(_slideEase);

@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 public sealed class Popup : MonoBehaviour, IPointerDownHandler
 {
     public event Action OnOpened;
+    public event Action OnClosed;
 
     [SerializeField] private float openDuration = 0.4f;
     [SerializeField] private float initialDelay = 0.4f;
@@ -53,7 +54,7 @@ public sealed class Popup : MonoBehaviour, IPointerDownHandler
         transform.DOScale(initialScale, openDuration).SetEase(Ease.OutExpo).OnComplete(() => OnOpened?.Invoke());
     }
     
-    public void ClosePopup() => transform.DOScale(0, openDuration).SetEase(Ease.OutExpo);
+    public void ClosePopup() => transform.DOScale(0, openDuration).SetEase(Ease.OutExpo).OnComplete(() => OnClosed?.Invoke());
 
     public void ClampToScreen()
     {

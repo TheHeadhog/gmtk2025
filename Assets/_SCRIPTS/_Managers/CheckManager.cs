@@ -73,5 +73,8 @@ public class CheckManager : SingletonPersistent<CheckManager>
 
     private CheckMarker GetMarker(SetMarker setMarker) => allCheckMarkers.FirstOrDefault(m => m.Id == setMarker.Id);
     
-    public float CalculateFinalScore() => (float)allCheckMarkers.Sum(c => c.Points) / allCheckMarkers.Count;
+    public float CalculateFinalScore()
+    {
+        return (float)Score / allCheckMarkers.Sum(c => c.Points);
+    }
 }
